@@ -7758,7 +7758,7 @@ a.badge:focus {
   .navbar .brand {
     padding-left: 10px;
     padding-right: 10px;
-    margin: 0 0 0 -5px;
+    margin: 0;
   }
   .nav-collapse {
     clear: both;
@@ -8842,7 +8842,7 @@ button.btn,
 input.btn {
   text-decoration: none;
   /*BUTTON STYLES*/
-
+  margin-bottom: 5px;
   /*BUTTON SIZES*/
 
 }
@@ -9292,7 +9292,7 @@ NAVBAR
 page
 ************************************/
 #page {
-  padding: 50px 0 0;
+  padding: 50px 20px 0 20px;
 }
 #page > .section:first-child {
   padding-top: 0;
@@ -10390,11 +10390,9 @@ FOOTER
 }
 
 .hero-unit h1, .hero-unit p {
-  text-align: center !important;
 }
 
 .hero-unit .hero-buttons {
-  text-align: center !important;
   margin-top: 20px;
   border-bottom: 0;
 }
@@ -10405,8 +10403,54 @@ FOOTER
   text-decoration: none;
   line-height: 1em;
   padding: 10px 25px 5px;
+  margin-bottom: 5px;
   font-weight: 400;
 }
+
+.hero-unit .hero-left {
+  text-align: left;
+}
+
+.hero-unit .hero-right {
+  background: #fcfcfc;
+  border : 1px solid #ececec;
+  padding: 20px;
+}
+
+.hero-right .header {
+  font-size: 1.6em;
+  line-height: 1.2em;
+  display: block;
+  line-height: 1em;
+  font-family: 'RobotoLight', 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, san-serif;
+}
+
+.hero-right .content {
+  display: block;
+  line-height: 1.4em;
+  margin: 15px 0;
+}
+
+.hero-right .content p {
+  font-size: 14px;
+}
+
+.hero-right .byline {
+  font-style: italic;
+}
+
+.btn.btn-rackerred {
+  color: white;
+  background: #a80000;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#b80000), to(#980000));
+  background-image: -webkit-linear-gradient(#b80000, #980000);
+  background-image: -moz-linear-gradient(#b80000, #980000);
+  background-image: -o-linear-gradient(#b80000, #980000);
+  background-image: linear-gradient(#b80000, #980000);
+  border : 1px solid #a80000;
+  text-shadow: 1px 1px 1px rgba(0,0,0,.4);
+}
+
 
 .sdk-ent {
   margin-bottom: 15px;
@@ -10497,3 +10541,23 @@ FOOTER
     font-size: 1.2em;
 }
 
+#comm_header,
+#comm_header h1,
+#comm_header h3,
+#comm_header p {
+  text-align: center;
+}
+
+a.btn-bigred:link, a.btn-bigred:visited, a.btn-bigred:active {
+  background: #a80000;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#b60000), to(#9a0000));
+  background-image: -webkit-linear-gradient(#b60000, #9a0000);
+  background-image: -moz-linear-gradient(#b60000, #9a0000);
+  background-image: -o-linear-gradient(#b60000, #9a0000);
+  background-image: linear-gradient(#b60000, #9a0000);
+  color: white;
+  margin-top: 10px;
+  font-size: 1.8em;
+  letter-spacing: -1px;
+}
+}
