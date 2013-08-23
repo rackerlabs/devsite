@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Automating Load Testing"
+title: "Automating Load Testing To Improve Web Application Performance"
 date: 2013-08-22 14:00
 comments: true
 author: Erik Torsner
