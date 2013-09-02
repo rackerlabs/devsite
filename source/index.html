@@ -1,162 +1,188 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
+
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Rackspace Developer Center</title>
-        <meta name="description" content="">
 
-        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+  <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Rackspace Developer Center</title>
+      <meta name="description" content="">
 
-        <link rel="stylesheet" href="/static/css/normalize.css">
-        <link rel="stylesheet" href="/static/css/styles-min.css">
-    </head>
-    <body>
-        <!--[if lt IE 7]>
-            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
-        <![endif]-->
+      <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-     <div class="navbar navbar-static-top">
-    <div class="navbar-inner">
+      <link rel="stylesheet" href="/static/css/normalize.css">
+      <link rel="stylesheet" href="/static/css/styles.css">
+  </head>
+
+  <body>
+    <!--[if lt IE 7]>
+        <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+    <![endif]-->
+
+    <div class="navbar navbar-static-top">
+      <div class="navbar-inner">
         <div class="container">
-             <a class="brand brand-fixed" href="/">
-                <img alt="Rackspace Developers" height="18" src="/static/img/logo.png" style="margin-bottom: -1px;" width="18"> <span>Rackspace Developers</span>
-             </a>
-             <a href="https://cart.rackspace.com/cloud/" target="_blank" id="join" class="btn btn-invite pull-right">Get Rackspace Cloud</a>
-                <ul class="nav">
-                    <li><a href="#community">Community</a></li>
+          <a class="brand brand-fixed" href="/">
+            <img alt="Rackspace Developers" height="18" src="/static/img/logo.png" style="margin-bottom: -1px;" width="18"> <span>Rackspace Developers</span>
+          </a>
+          <a href="https://cart.rackspace.com/cloud/" target="_blank" id="join" class="btn btn-invite pull-right">Get Rackspace Cloud</a>
+            <ul class="nav">
+              <li><a href="#community">Community</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">SDKs &amp; Tools <b class="caret"></b></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="#java">Java</a></li>
+                  <li><a href="#dotnet">.NET</a></li>
+                  <li><a href="#nodejs">Node.js</a></li>
+                  <li><a href="#php">PHP</a></li>
+                  <li><a href="#python">Python</a></li>
+                  <li><a href="#ruby">Ruby</a></li>
+                </ul>
+              </li>
+              <li><a href="#home-services">Services</a></li>
+              <li><a href="#home-openstack">OpenStack</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Support <b class="caret"></b></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="https://status.rackspace.com/">System Status</a></li>
+                  <li><a href="https://mycloud.rackspace.com/">Control Panel</a></li>
+                  <li class="divider"></li>
+                  <li><a href="http://www.rackspace.com/cloud/aboutus/contact/">Talk with support</a></li>
+                  <li><a href="http://www.rackspace.com/knowledge_center/">Knowledge Center</a></li>
+                  <li><a href="https://community.rackspace.com/developers/default">Developer Forums</a></li>
+                </ul>
+              </li>
+              <li><a href="/blog/">DevOps Blog</a></li>
+            </ul><!--/nav-->
+        </div> <!--/container -->
+      </div><!-- /navbar-inner -->
+    </div><!--/navbar-->
 
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">SDKs & Tools <b class="caret"></b></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="#java">Java</a></li>
-                            <li><a href="#dotnet">.NET</a></li>
-                            <li><a href="#nodejs">Node.js</a></li>
-                            <li><a href="#php">PHP</a></li>
-                            <li><a href="#python">Python</a></li>
-                            <li><a href="#ruby">Ruby</a></li>
-                        </ul>
-                    </li>
-
-                    <li><a href="#home-services">Services</a></li>
-
-                    <li><a href="#home-openstack">OpenStack</a></li>
-
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Support <b class="caret"></b></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="https://status.rackspace.com/">System Status</a></li>
-                            <li><a href="https://mycloud.rackspace.com/">Control Panel</a></li>
-                            <li class="divider"></li>
-                            <li><a href="http://www.rackspace.com/cloud/aboutus/contact/">Talk with support</a></li>
-                            <li><a href="http://www.rackspace.com/knowledge_center/">Knowledge Center</a></li>
-                            <li><a href="https://community.rackspace.com/developers/default">Developer Forums</a></li>
-                        </ul>
-                    </li>
-
-                    <li><a href="/blog/">DevOps Blog</a></li>
-                </ul><!--/nav-->
-        </div>
-    </div><!-- /navbar-inner -->
-</div>    <div class="hero-unit">
-  <div class="container">
-    <div class="row">
-      <h1>Build Great Software on OpenStack Clouds</h1>
-      <p class="lead">
-          Rackspace is dedicated to <span class="red">open source</span> and
-          <span class="red">open community</span>.
-          We want to <span class="red">empower</span> and
-          <span class="red">support</span> developers to rapidly innovate,
-          build applications on OpenStack clouds and to make a difference
-          in the community.
-      </p>
-      <div class="hero-buttons">
-        <a class="btn btn-large btn-primary" href="#community">Community</a>
-        <a class="btn btn-large btn-primary" href="#home-sdks">SDKs &amp; Tools</a>
-        <a class="btn btn-large btn-primary" href="#home-services">Services</a>
-        <a class="btn btn-large btn-primary" href="#home-openstack">OpenStack</a>
-      </div>
-    </div><!-- row -->
-  </div><!-- container -->
-</div><!-- hero unit -->
+    <div class="hero-unit">
+      <div class="container">
+        <div class="row">
+          <div class="span8 hero-left">
+            <h1>Build Great Software on OpenStack Clouds</h1>
+            <p class="lead">
+                Rackspace is dedicated to <span class="red">open source</span> and
+                <span class="red">open community</span>.
+                We want to <span class="red">empower</span> and
+                <span class="red">support</span> developers to rapidly innovate,
+                build applications on OpenStack clouds and to make a difference
+                in the community.
+            </p>
+            <div class="hero-buttons">
+              <a class="btn btn-large btn-primary" href="#community">Community</a>
+              <a class="btn btn-large btn-primary" href="#home-sdks">SDKs &amp; Tools</a>
+              <a class="btn btn-large btn-primary" href="#home-services">Services</a>
+              <a class="btn btn-large btn-primary" href="#home-openstack">OpenStack</a>
+            </div>
+          </div><!--/span8-->
+          <div class="span4 hero-right">
+            <span class="header">Go make something awesome on the house.</span>
+            <span class="content">
+              <p>We're dedicated to making all developer
+                lives better, we're passionate about supporting
+                open source projects, communities and developers.</p>
+              <p>So here's $300 in in Rackspace Cloud credit for you to go forth
+                and make something awesome.</p>
+              <p class="byline">Love,<br />
+                The Rackspace Devs
+              </p>
+            </span>
+            <a class="btn btn-rackerred" href="devtrial/">&raquo; Sign up for the Developer Discount</a>
+          </div><!--/span4-->
+        </div><!-- row -->
+      </div><!-- container -->
+    </div><!-- hero unit -->
 
     <div id="page">
-        <div id="community" class="container section-container">
-  <header id="comm_header" class="section-header">
-      <h1 class="section-title lite">Open Source &amp; Community</h1>
-      <h3>Rackspace is dedicated to <span class="red">open source</span> and <span class="red">open community</span>.</h3>
-      <p>From OpenStack, to a wide range of Open Source projects spread across
-        the developer community; we encourage Rackers to contribute back to the
-        engineering &amp; developer community.</p>
-  </header>
-  <br/>
-  <div class="oss_blurbs">
-    <div class="row-fluid">
-      <div class="span12">
-        <div class="icon_wrap">
-          <img src="/static/img/logos/community-logo-header.png"></img>
-        </div>
-        <h3>Join the community!</h3>
-        <p>
-          <a class="btn btn-info white" href="https://twitter.com/rackspace">Follow on Twitter</a>
-          <a class="btn btn-info white" href="irc://irc.freenode.net/rackspace">irc.freenode.net - #rackspace</a>
-          <a class="btn btn-info white" href="https://community.rackspace.com/developers/default">Developer Forums</a>
-          <a class="btn btn-info white" href="mailto:sdk-support@rackspace.com">Drop us a line</a>
-        </p>
-      </div><!--/span12-->
-    </div><!--/row-fluid-->
-    <br/>
-    <br/>
-    <div class="row-fluid">
-      <div class="span4">
-        <div class="icon_wrap">
-          <a href="http://github.com/rackspace"><img src="/static/img/fanatiguy.png"></img></a>
-        </div>
-        <h3>Rackspace</h3>
-        <p class="highlighter">Follow our official open source projects on
-          <a href="https://github.com/rackspace">Github</a>. All projects in
-          the Rackspace organization are backed by
-          <a href="http://www.rackspace.com/blog/rackspace-developer-support-fanatical-support-for-your-code/">Fanatical Support for
-          Developers</a> and dedicated staff.
-        </p>
-        <p><a class="btn" href="http://github.com/rackspace">Rackspace::Github &raquo;</a></p>
-      </div><!--/span4-->
-      <div class="span4">
-        <div class="icon_wrap">
-          <a href="http://github.com/openstack"><img src="/static/img/openstack-vert.png"></img></a>
-        </div>
-        <h3>OpenStack</h3>
-        <p class="highlighter">Rackspace and NASA launched OpenStack together to
-          help developers everywhere "unlock-in" the cloud. We have more
-          OpenStack developers on our team than any other company - and all
-          work is open source, open community and open design.
-          <a href="https://wiki.openstack.org/wiki/HowToContribute">Come be a part of it!</a></p>
-        <p><a class="btn" href="https://wiki.openstack.org/wiki/HowToContribute">Get Involved &raquo;</a></p>
-      </div><!--/span4-->
-      <div class="span4">
-        <div class="icon_wrap">
-          <a href="http://github.com/rackspace"><img src="/static/img/gh/GitHub-Mark-32px.png"></img></a>
-        </div>
-        <h3>More Open Source?</h3>
-        <p class="highlighter">In addition to official, supported open source
-          projects, Rackers dedicate time during work and personal time to a
-          wide range of open source project and standards, this is why we have
-          <a href="https://github.com/rackerlabs">/rackerlabs</a> and
-          <a href="https://github.com/racker"/>/racker</a> on Github!
-        </p>
-        <p>
-          <a class="btn" href="http://github.com/rackerlabs">Rackerlabs::Github &raquo;</a>
-          <a class="btn" href="http://github.com/racker">Racker::Github &raquo;</a>
-        </p>
-      </div><!--/span4-->
-    </div><!--/row-fluid-->
-  </div><!--/oss_blurbs-->
-</div><!--/container-->
+      <div id="community" class="container section-container">
+        <header id="comm_header" class="section-header">
+          <h1 class="section-title lite">Open Source &amp; Community</h1>
+          <h3>Rackspace is dedicated to <span class="red">open source</span> and <span class="red">open community</span>.</h3>
+          <p>From OpenStack, to a wide range of Open Source projects spread across
+            the developer community; we encourage Rackers to contribute back to the
+            engineering &amp; developer community.</p>
+        </header>
 
-        <hr/>
+        <br/>
+
+        <div class="oss_blurbs">
+          <div class="row-fluid">
+            <div class="span12">
+              <div class="icon_wrap">
+                <img src="/static/img/logos/community-logo-header.png" />
+              </div>
+              <h3>Join the community!</h3>
+              <p>
+                <a class="btn btn-info white" href="https://twitter.com/rackspace">Follow on Twitter</a>
+                <a class="btn btn-info white" href="irc://irc.freenode.net/rackspace">irc.freenode.net - #rackspace</a>
+                <a class="btn btn-info white" href="https://community.rackspace.com/developers/default">Developer Forums</a>
+                <a class="btn btn-info white" href="mailto:sdk-support@rackspace.com">Drop us a line</a>
+              </p>
+            </div><!--/span12-->
+          </div><!--/row-fluid-->
+
+          <br/>
+          <br/>
+
+          <div class="row-fluid">
+            <div class="span4">
+              <div class="icon_wrap">
+                <a href="http://github.com/rackspace"><img src="/static/img/fanatiguy.png" /></a>
+              </div>
+              <h3>Rackspace</h3>
+              <p class="highlighter">Follow our official open source projects on
+                <a href="https://github.com/rackspace">Github</a>. All projects in
+                the Rackspace organization are backed by
+                <a href="http://www.rackspace.com/blog/rackspace-developer-support-fanatical-support-for-your-code/">Fanatical Support for
+                Developers</a> and dedicated staff.
+              </p>
+              <p><a class="btn" href="http://github.com/rackspace">Rackspace::Github &raquo;</a></p>
+            </div><!--/span4-->
+
+            <div class="span4">
+              <div class="icon_wrap">
+                <a href="http://github.com/openstack"><img src="/static/img/openstack-vert.png" /></a>
+              </div>
+              <h3>OpenStack</h3>
+              <p class="highlighter">Rackspace and NASA launched OpenStack together to
+                help developers everywhere "unlock-in" the cloud. We have more
+                OpenStack developers on our team than any other company - and all
+                work is open source, open community and open design.
+                <a href="https://wiki.openstack.org/wiki/HowToContribute">Come be a part of it!</a></p>
+              <p><a class="btn" href="https://wiki.openstack.org/wiki/HowToContribute">Get Involved &raquo;</a></p>
+            </div><!--/span4-->
+
+            <div class="span4">
+              <div class="icon_wrap">
+                <a href="http://github.com/rackspace"><img src="/static/img/gh/GitHub-Mark-32px.png" /></a>
+              </div>
+              <h3>More Open Source?</h3>
+              <p class="highlighter">In addition to official, supported open source
+                projects, Rackers dedicate time during work and personal time to a
+                wide range of open source project and standards, this is why we have
+                <a href="https://github.com/rackerlabs">/rackerlabs</a> and
+                <a href="https://github.com/racker">/racker</a> on Github!
+              </p>
+              <p>
+                <a class="btn" href="http://github.com/rackerlabs">Rackerlabs::Github &raquo;</a>
+                <a class="btn" href="http://github.com/racker">Racker::Github &raquo;</a>
+              </p>
+            </div><!--/span4-->
+
+          </div><!--/row-fluid-->
+        </div><!--/oss_blurbs-->
+      </div><!--/container-->
+
+      <hr/>
+
+<!-- Cleanup Tag JNOLLER -->
+
         <div id="home-sdks" class="container section-container">
   <header class="section-header">
     <h1 class="section-title">Official SDKs &amp; Tools</h1>
@@ -233,10 +259,10 @@
                         </dd>
                         <dd>
                             <strong>Mailing List:</strong>  <a href="mailto:jclouds-user-subscribe@apache.org">Subscribe</a> | <a href="http://www.mail-archive.com/user@jclouds.incubator.apache.org/">Archive</a>
-                        </dt>
+                        </dd>
                         <dd>
                             <strong>Report Issues:</strong> <a href="https://issues.apache.org/jira/browse/JCLOUDS">Issue Tracker</a>
-                        </dt>
+                        </dd>
                     </dl>
                     <!--
                     <dl>
@@ -299,10 +325,10 @@
                         </dd>
                         <dd>
                             <strong>Got Questions:</strong> <a href="mailto:sdk-support@rackspace.com">sdk-support@rackspace.com</a>
-                        </dt>
+                        </dd>
                         <dd>
                             <strong>Report Issues:</strong> <a href="https://github.com/rackspace/openstack.net/issues">Github</a>
-                        </dt>
+                        </dd>
                     </dl>
                     <!--
                     <dl>
@@ -364,10 +390,10 @@
                         </dd>
                         <dd>
                             <strong>Got Questions:</strong> <a href="mailto:sdk-support@rackspace.com">sdk-support@rackspace.com</a>
-                        </dt>
+                        </dd>
                         <dd>
                             <strong>Report Issues:</strong> <a href="https://github.com/nodejitsu/pkgcloud/issues">Github</a>
-                        </dt>
+                        </dd>
                     </dl>
                     <!--
                     <dl>
@@ -430,13 +456,13 @@ getting-started-compute.md" target="_top">Getting Started with pkgcloud and the 
                         </dd>
                         <dd>
                             <strong>Got Questions:</strong> <a href="mailto:sdk-support@rackspace.com">sdk-support@rackspace.com</a>
-                        </dt>
+                        </dd>
                         <dd>
                             <strong>Report Issues:</strong> <a href="https://github.com/rackspace/php-opencloud/issues">GitHub</a>
-                        </dt>
+                        </dd>
                         <dd>
                             <strong>Contributing:</strong> <a href="https://github.com/rackspace/php-opencloud/blob/master/HACKING.md">Contributor How-To</a>
-                        </dt>
+                        </dd>
 
                     </dl>
                     <!--
@@ -498,10 +524,10 @@ getting-started-compute.md" target="_top">Getting Started with pkgcloud and the 
                         </dd>
                         <dd>
                             <strong>Got Questions:</strong> <a href="mailto:sdk-support@rackspace.com">sdk-support@rackspace.com</a>
-                        </dt>
+                        </dd>
                         <dd>
                             <strong>Report Issues:</strong> <a href="https://github.com/rackspace/pyrax/issues">Github</a>
-                        </dt>
+                        </dd>
                     </dl>
                     <!--
                     <dl>
@@ -536,7 +562,7 @@ getting-started-compute.md" target="_top">Getting Started with pkgcloud and the 
                     </dd>
                     <dd>
                         <a href="https://rubygems.org/gems/fog">Fog on RubyGems</a>
-                    <dd>
+                    </dd>
                 </dl>
             </div>
             <div class="span4">
@@ -568,10 +594,10 @@ getting-started-compute.md" target="_top">Getting Started with pkgcloud and the 
                     </dd>
                     <dd>
                         <strong>Mailing List:</strong> <a href="http://groups.google.com/group/ruby-fog">ruby-fog</a>
-                    </dt>
+                    </dd>
                     <dd>
                         <strong>Report Issues:</strong> <a href="https://github.com/fog/fog/issues">Github</a>
-                    </dt>
+                    </dd>
                 </dl>
                 <!--
                 <dl>
@@ -877,10 +903,10 @@ getting-started-compute.md" target="_top">Getting Started with pkgcloud and the 
                 </dd>
                 <dd>
                     <strong>Got Questions:</strong> <a href="https://ask.openstack.org/questions/">Ask OpenStack!</a>
-                </dt>
+                </dd>
                 <dd>
                     <strong>Report Issues:</strong> <a href="https://wiki.openstack.org/wiki/HowToContribute#If_you.27re_a_tester_.28and_breaker.29.2C_get_started_this_way:">How To Contribute</a>
-                </dt>
+                </dd>
             </dl>
           </div><!--/span4-->
         </div><!--/span10-->
