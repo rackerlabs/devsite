@@ -15,13 +15,13 @@ categories:
 It's time to go make something awesome, on us.
 
 The world is filled with developers, hackers, devops people and more - you are
-the bread and butter of the tech world. Each day you get up and thinking of
+the bread and butter of the tech world. Each day you get up and think of
 new, amazing, awesome things and put your imagination and skills to work.
 
 Maybe you're building the next [SaltStack][9] or [Ansible][10]. Maybe a new
-realtime web application framework that builds the elasticity of the cloud.
+realtime web application framework that builds on the elasticity of the cloud.
 Could you be building a beautiful abstraction like [Docker][11], sharing
-platform, encrypted communications service? Maybe you just want to add support
+platform, or encrypted communications service? Maybe you just want to add support
 for [OpenStack][1] to your cloud based tool or project?
 
 You could just want to scratch an itch or chase something you feel passionate
@@ -32,7 +32,7 @@ world sublime should be celebrated and encouraged.
 *Today we're pleased to offer a new **$300 over six months** Developer
 Discount program in the US and UK.*
 
-Sign up at for a **new** Rackspace Cloud account in the US or UK at
+Sign up for a **new** Rackspace Cloud account in the US or UK at
 [developer.rackspace.com/devtrial][8], and your account is automatically
 credited up to 50$ (30£ UK) for 6 months. Note that anything above 50$, and
 you are responsible for the cost, otherwise: it's on us. It's simple, and
