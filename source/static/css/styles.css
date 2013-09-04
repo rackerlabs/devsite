@@ -10561,3 +10561,8 @@ a.btn-bigred:link, a.btn-bigred:visited, a.btn-bigred:active {
   letter-spacing: -1px;
 }
 }
+
+div#share-buttons {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
