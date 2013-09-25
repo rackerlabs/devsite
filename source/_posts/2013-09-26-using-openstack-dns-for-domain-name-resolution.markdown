@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Using Designate As A Name Server for DNS"
+title: "Using Openstack DNS for Domain Name Resolution"
 date: 2013-09-26 08:00
 comments: true
 author: Tim Simmons
@@ -10,7 +10,7 @@ categories:
 - DNS
 - Designate
 ---
-*Last week, you saw a guide on [Getting Started with OpenStack and Designate][11] that covered the basic setup for getting a Domain Name Server up and running using Openstack DNS's solution, code named Designate. Today we'll dive into actually using Designate to resolve your domain names.*
+*Last week, you saw a guide on [Getting Started with OpenStack and Designate][11] that covered the basic setup for getting a Domain Name Server up and running using Openstack DNS's solution, Designate. Today we'll dive into actually using Designate to resolve your domain names.*
  
 In my opinion the best way to learn about a project is to use the software yourself. In that spirit, I’m going to show you how to use Designate as a name server for your own domains and servers.<!--More--> Here is a very basic picture of what we’ll be doing:
  
@@ -18,7 +18,7 @@ In my opinion the best way to learn about a project is to use the software yours
  
 ### What You’ll Need
  
-* 2 Domains. You must own them or have the ability to set their name servers, a common option on sites where you register domains. If you don’t have any, I recommend registering with [namecheap.com][2]. They come in handy, perhaps you’d like to get some variations of your name, or your kids’ names. Two of these will be name servers. So you won’t be able to use them to post pictures of your cats, keep that in mind.
+* 2 Domains. You must own them or have the ability to set their name servers, a common option on sites where you register domains. If you don’t have any, I recommend registering with [namecheap.com][2]. They come in handy, perhaps you’d like to get some variations of your name, or your kids’ names. One of these will be a name server. So you won’t be able to use it to post pictures of your cats, keep that in mind.
 * Access to a server with an externally visible IP Address. I recommend a [Cloud Server][3] from Rackspace. You can spin one up pretty cheaply, or get a [developer discount][12].
 * Access to a DNS Service. Again I recommend the free Rackspace [Cloud DNS][4]
  
@@ -29,7 +29,7 @@ First, you’ll need the IP of your server. This means that if you don’t have 
 I’m going to assume you use Rackspace Cloud DNS and Namecheap. But everything I’m doing here is straightforward with other services.
  
 Once you have your domains pick one of them to use for your name servers, meaning all domains you would like to use Designate to administer DNS for will point to a variation of this domain. When you’ve done that, we need to point this domain to your Designate Cloud Server.
- 
+
 In the Cloud DNS section of the Rackspace Cloud Control Panel, create a domain.
  
 In the domains, create an A(Address) Record that points to your Cloud Server. Like so:
