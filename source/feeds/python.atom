@@ -1,0 +1,151 @@
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title type="text">pyrax Release Notes</title>
+    <subtitle type="text">The Python SDK for the Rackspace Cloud</subtitle>
+    <updated>2013-12-23T04:59:13.997Z</updated>
+    <author>
+        <name>The Rackspace Developer Relations Group</name>
+    </author>
+    <link
+        href="https://github.com/rackspace/pyrax/blob/master/RELEASENOTES.md" rel="self"/>
+    <link href="http://developer.rackspace.com/"/>
+    <entry>
+        <updated>2013-12-23T04:59:14.002Z</updated>
+        <title type="text">2013.11.13 - Version 1.6.2</title>
+        <id>https://github.com/rackspace/pyrax/blob/master/RELEASENOTES.md#20131113---version-162</id>
+        <link href="https://github.com/rackspace/pyrax/blob/master/RELEASENOTES.md#20131113---version-162"/>
+        <summary type="html">&lt;li&gt;Cloud Databases:  &lt;ul&gt; &lt;li&gt;Added missing 'host' parameter. GitHub #246&lt;/li&gt;</summary>
+    </entry>
+    <entry>
+        <updated>2013-12-23T04:59:14.016Z</updated>
+        <title type="text">2013.10.31 - Version 1.6.1</title>
+        <id>https://github.com/rackspace/pyrax/blob/master/RELEASENOTES.md#20131031---version-161</id>
+        <link href="https://github.com/rackspace/pyrax/blob/master/RELEASENOTES.md#20131031---version-161"/>
+        <summary type="html">&lt;li&gt;Cloud Databases:  &lt;ul&gt; &lt;li&gt;Added support for Backups. GitHub #216&lt;/li&gt; &lt;li&gt;Added ability to specify 'host' parameter for users. GitHub #229&lt;/li&gt; &lt;li&gt;Added ability to update users.&lt;/li&gt;</summary>
+    </entry>
+    <entry>
+        <updated>2013-12-23T04:59:14.018Z</updated>
+        <title type="text">2013.10.24 - Version 1.6.0</title>
+        <id>https://github.com/rackspace/pyrax/blob/master/RELEASENOTES.md#20131024---version-160</id>
+        <link href="https://github.com/rackspace/pyrax/blob/master/RELEASENOTES.md#20131024---version-160"/>
+        <summary type="html">&lt;li&gt;New:  &lt;ul&gt; &lt;li&gt;Added support for &lt;strong&gt;Cloud Queues&lt;/strong&gt; (Marconi).&lt;/li&gt;</summary>
+    </entry>
+    <entry>
+        <updated>2013-12-23T04:59:14.023Z</updated>
+        <title type="text">2013.10.04 - Version 1.5.1</title>
+        <id>https://github.com/rackspace/pyrax/blob/master/RELEASENOTES.md#20131004---version-151</id>
+        <link href="https://github.com/rackspace/pyrax/blob/master/RELEASENOTES.md#20131004---version-151"/>
+        <summary type="html">&lt;li&gt;Pyrax in general:  &lt;ul&gt; &lt;li&gt;Moved the &lt;code&gt;get_limits()&lt;/code&gt; behavior to the base client (Nate House)&lt;/li&gt; &lt;li&gt;Added ability to call a full URL from the client.&lt;/li&gt; &lt;li&gt;Added HEAD methods to base client and manager classes.&lt;/li&gt; &lt;li&gt;Removed unused imports. GitHub #189&lt;/li&gt; &lt;li&gt;Improved handling of 400 errors in &lt;code&gt;identity.create_user()&lt;/code&gt; &lt;/li&gt; &lt;li&gt;Fixed issue with password auth failing with Rackspace identity. GitHub #190&lt;/li&gt; &lt;li&gt;Added utility method for RFC 2822-compliant dates.&lt;/li&gt; &lt;li&gt;Refactored the &lt;code&gt;_create_body()&lt;/code&gt; method into the BaseManager class.&lt;/li&gt; &lt;li&gt;Improved handling of default regions in the service catalog.&lt;/li&gt; &lt;li&gt;Added support for different auth endpoints for Rackspace auth.&lt;/li&gt; &lt;li&gt;Added files to allow creating RPMs. (Greg Swift)&lt;/li&gt;</summary>
+    </entry>
+    <entry>
+        <updated>2013-12-23T04:59:14.025Z</updated>
+        <title type="text">2013.09.04 - Version 1.5.0</title>
+        <id>https://github.com/rackspace/pyrax/blob/master/RELEASENOTES.md#20130904---version-150</id>
+        <link href="https://github.com/rackspace/pyrax/blob/master/RELEASENOTES.md#20130904---version-150"/>
+        <summary type="html">&lt;li&gt;Added support for the Rackspace Cloud Monitoring service&lt;/li&gt; &lt;li&gt;Added support for the Rackspace Autoscale service&lt;/li&gt; &lt;li&gt;Fixed an issue where parameters to the manger.create() method were passed incorrectly.&lt;/li&gt;</summary>
+    </entry>
+    <entry>
+        <updated>2013-12-23T04:59:14.026Z</updated>
+        <title type="text">2013.08.21 - Version 1.4.11</title>
+        <id>https://github.com/rackspace/pyrax/blob/master/RELEASENOTES.md#20130821---version-1411</id>
+        <link href="https://github.com/rackspace/pyrax/blob/master/RELEASENOTES.md#20130821---version-1411"/>
+        <summary type="html">&lt;li&gt;Fixed issue #161: different locales caused date parsing error.&lt;/li&gt; &lt;li&gt;Fixed issue #166: passwords with non-ASCII characters were causing parsing errors.&lt;/li&gt; &lt;li&gt;Added setting identity_type to the sample code. GitHub #169.&lt;/li&gt; &lt;li&gt;Fixed the way that default regions are handled. GitHub #165.&lt;/li&gt; &lt;li&gt;Changed the example code to use only ASCII characters for server names. GitHub #162.&lt;/li&gt; &lt;li&gt;Changed container.get_object() to use the more efficient method in the client. GitHub #160.&lt;/li&gt; &lt;li&gt;Fixed broken internal link. GitHub #159.&lt;/li&gt;</summary>
+    </entry>
+    <entry>
+        <updated>2013-12-23T04:59:14.038Z</updated>
+        <title type="text">2013.08.06 - Version 1.4.10</title>
+        <id>https://github.com/rackspace/pyrax/blob/master/RELEASENOTES.md#20130806---version-1410</id>
+        <link href="https://github.com/rackspace/pyrax/blob/master/RELEASENOTES.md#20130806---version-1410"/>
+        <summary type="html">&lt;li&gt;Fixed a performance issue when GETting a single object. GitHub #156.&lt;/li&gt; &lt;li&gt;Fixed an issue with error response parsing. GitHub #151.&lt;/li&gt; &lt;li&gt;Fixed trailing slash bug in identity. GitHub #154.&lt;/li&gt; &lt;li&gt;Fixed a bug noticed in #69 in which the parameters to the swiftclient connection object were incorrect.&lt;/li&gt; &lt;li&gt;Fixed a bug in download_object() that would throw an exception if the target directory already exists. GitHub #148.&lt;/li&gt; &lt;li&gt;Added ability to specify content length when uploading an object to swift. GitHub #146.&lt;/li&gt;</summary>
+    </entry>
+    <entry>
+        <updated>2013-12-23T04:59:14.043Z</updated>
+        <title type="text">2013.07.23 - Version 1.4.9</title>
+        <id>https://github.com/rackspace/pyrax/blob/master/RELEASENOTES.md#20130723---version-149</id>
+        <link href="https://github.com/rackspace/pyrax/blob/master/RELEASENOTES.md#20130723---version-149"/>
+        <summary type="html">&lt;li&gt;Fixed a bug introduced in the last release that prevented progressive fetching of objects. GitHub #139&lt;/li&gt; &lt;li&gt;Fixed an issue where the &lt;code&gt;verify_ssl&lt;/code&gt; setting was not being passed to the Identity instance. GitHub #140&lt;/li&gt; &lt;li&gt;Added support for returning extra info about API calls to Swift. This includes info on the status, reason, and header information for the call. GitHub #138&lt;/li&gt;</summary>
+    </entry>
+    <entry>
+        <updated>2013-12-23T04:59:14.045Z</updated>
+        <title type="text">2013.07.19 - Version 1.4.8</title>
+        <id>https://github.com/rackspace/pyrax/blob/master/RELEASENOTES.md#20130719---version-148</id>
+        <link href="https://github.com/rackspace/pyrax/blob/master/RELEASENOTES.md#20130719---version-148"/>
+        <summary type="html">&lt;li&gt;Added a hack to work around an apparent bug in python-swiftclient that was preventing automatic re-authentication after a token expired. This affects issues #111, #115, #117, and possibly others.&lt;/li&gt; &lt;li&gt;Fixed Issue #131 that caused an exception when uploading a binary file.&lt;/li&gt; &lt;li&gt;Fixed Issue #134: uploading file-like objects&lt;/li&gt; &lt;li&gt;Fixed auth_with_token() to return the full service catalog. Issue #128.&lt;/li&gt; &lt;li&gt;Improved the checksum process to be more memory efficient with very large files. Issue #122.&lt;/li&gt;</summary>
+    </entry>
+    <entry>
+        <updated>2013-12-23T04:59:14.046Z</updated>
+        <title type="text">2013.06.28 - Version 1.4.7</title>
+        <id>https://github.com/rackspace/pyrax/blob/master/RELEASENOTES.md#20130628---version-147</id>
+        <link href="https://github.com/rackspace/pyrax/blob/master/RELEASENOTES.md#20130628---version-147"/>
+        <summary type="html">&lt;li&gt;Added the &lt;code&gt;update()&lt;/code&gt; method to modify existing load balancers.&lt;/li&gt; &lt;li&gt;The &lt;code&gt;fetch_object()&lt;/code&gt; method was not raising the correct exception when the requested object/container combination does not exist.&lt;/li&gt; &lt;li&gt;Added support for downloading objects in nested folders. GitHub #104.&lt;/li&gt; &lt;li&gt;Fixed an issue (#110) that was causing the purge from CDN command to fail.&lt;/li&gt; &lt;li&gt;Added support for bypassing SSL certificate verification with cloud servers, based on PR #96.&lt;/li&gt; &lt;li&gt;Improved unit test coverage for several modules.&lt;/li&gt; &lt;li&gt;Add &lt;code&gt;eq&lt;/code&gt; and &lt;code&gt;ne&lt;/code&gt; to the &lt;code&gt;Node&lt;/code&gt; class in cloud load balancers.&lt;/li&gt; &lt;li&gt;Updated the installation guide with identity_type setting. Issue #105.&lt;/li&gt; &lt;li&gt;Fixed bug where &lt;code&gt;tenant_id&lt;/code&gt; was ignored if passed to &lt;code&gt;set_credentials()&lt;/code&gt;.&lt;/li&gt; &lt;li&gt;Added &lt;code&gt;return_none&lt;/code&gt; option to cloud files &lt;code&gt;store_object()&lt;/code&gt; method.&lt;/li&gt;</summary>
+    </entry>
+    <entry>
+        <updated>2013-12-23T04:59:14.052Z</updated>
+        <title type="text">2013.06.13 - Version 1.4.6</title>
+        <id>https://github.com/rackspace/pyrax/blob/master/RELEASENOTES.md#20130613---version-146</id>
+        <link href="https://github.com/rackspace/pyrax/blob/master/RELEASENOTES.md#20130613---version-146"/>
+        <summary type="html">&lt;li&gt;Added the ability to authenticate with an existing token.&lt;/li&gt; &lt;li&gt;Fixed an issue where the default environment was not properly set. Issue #87.&lt;/li&gt; &lt;li&gt;Modified tests so that they work with PyPy.&lt;/li&gt; &lt;li&gt;Added better explanation of pyrax's ability to automatically re-authenticate when a token expires. Issue #93.&lt;/li&gt; &lt;li&gt;Fixed a bug resulting from overly-aggressive URL quoting.&lt;/li&gt; &lt;li&gt;Removed the 'default_identity_type' definition in pyrax/&lt;strong&gt;init&lt;/strong&gt;.py, as it is no longer needed. Issue #95.&lt;/li&gt;</summary>
+    </entry>
+    <entry>
+        <updated>2013-12-23T04:59:14.055Z</updated>
+        <title type="text">2013.06.05 - Version 1.4.5</title>
+        <id>https://github.com/rackspace/pyrax/blob/master/RELEASENOTES.md#20130605---version-145</id>
+        <link href="https://github.com/rackspace/pyrax/blob/master/RELEASENOTES.md#20130605---version-145"/>
+        <summary type="html">&lt;li&gt;Fixed a bug that prevented region from being properly set. Issue #86.&lt;/li&gt;</summary>
+    </entry>
+    <entry>
+        <updated>2013-12-23T04:59:14.061Z</updated>
+        <title type="text">2013.06.04 - Version 1.4.4</title>
+        <id>https://github.com/rackspace/pyrax/blob/master/RELEASENOTES.md#20130604---version-144</id>
+        <link href="https://github.com/rackspace/pyrax/blob/master/RELEASENOTES.md#20130604---version-144"/>
+        <summary type="html">&lt;li&gt;Fixed a bug when using environment variables to set the identity_type. Issue #82.&lt;/li&gt;</summary>
+    </entry>
+    <entry>
+        <updated>2013-12-23T04:59:14.062Z</updated>
+        <title type="text">2013.06.03 - Version 1.4.3</title>
+        <id>https://github.com/rackspace/pyrax/blob/master/RELEASENOTES.md#20130603---version-143</id>
+        <link href="https://github.com/rackspace/pyrax/blob/master/RELEASENOTES.md#20130603---version-143"/>
+        <summary type="html">&lt;li&gt;Added support for having objects automatically deleted from Cloud Files after a period of time.&lt;/li&gt;</summary>
+    </entry>
+    <entry>
+        <updated>2013-12-23T04:59:14.064Z</updated>
+        <title type="text">2013.05.30 - Version 1.4.2</title>
+        <id>https://github.com/rackspace/pyrax/blob/master/RELEASENOTES.md#20130530---version-142</id>
+        <link href="https://github.com/rackspace/pyrax/blob/master/RELEASENOTES.md#20130530---version-142"/>
+        <summary type="html">&lt;li&gt;Fixed several bugs related to the identity and config file changes.&lt;/li&gt;</summary>
+    </entry>
+    <entry>
+        <updated>2013-12-23T04:59:14.065Z</updated>
+        <title type="text">2013.05.30 - Version 1.4.1</title>
+        <id>https://github.com/rackspace/pyrax/blob/master/RELEASENOTES.md#20130530---version-141</id>
+        <link href="https://github.com/rackspace/pyrax/blob/master/RELEASENOTES.md#20130530---version-141"/>
+        <summary type="html">&lt;li&gt;Added support for new Cloud Database user APIs.&lt;/li&gt; &lt;li&gt;Fixed a bug in which an exception class was not defined (#77)&lt;/li&gt;</summary>
+    </entry>
+    <entry>
+        <updated>2013-12-23T04:59:14.066Z</updated>
+        <title type="text">2013.05.29 - Version 1.4.0</title>
+        <id>https://github.com/rackspace/pyrax/blob/master/RELEASENOTES.md#20130529---version-140</id>
+        <link href="https://github.com/rackspace/pyrax/blob/master/RELEASENOTES.md#20130529---version-140"/>
+        <summary type="html">&lt;li&gt;Added support for &lt;strong&gt;all&lt;/strong&gt; OpenStack clouds. Previous versions only supported Rackspace authentication methods.&lt;/li&gt; &lt;li&gt;Configuration files now support multiple cloud environments in the same file. You can switch between environments by calling &lt;code&gt;pyrax.set_environment("env")&lt;/code&gt;, where &lt;code&gt;env&lt;/code&gt; is the name of the desired environment.&lt;/li&gt; &lt;li&gt;Configuration settings can now be stored in environment variables. These all begin with &lt;code&gt;CLOUD_&lt;/code&gt;; a full list can be found in the &lt;a href="https://github.com/rackspace/pyrax/tree/master/docs/pyrax_doc.md"&gt;main pyrax documentation&lt;/a&gt;.&lt;/li&gt; &lt;li&gt;Available regions are now available in the &lt;code&gt;pyrax.regions&lt;/code&gt; attribute after authentication.&lt;/li&gt; &lt;li&gt;Services that are available for the current cloud provider are now available in the &lt;code&gt;pyrax.services&lt;/code&gt; attribute.&lt;/li&gt; &lt;li&gt;Fixed an issue in Cloud Databases in which the &lt;code&gt;volume&lt;/code&gt; attribute was sometimes a dict and sometimes an instance of &lt;code&gt;CloudDatabaseVolume&lt;/code&gt;. Now it will always be an instance.&lt;/li&gt; &lt;li&gt;Added a smoke test script to the integrated tests. It currently covers the compute, networking, database, and object_store services.&lt;/li&gt; &lt;li&gt;Removed unnecessary hack for compute URIs.&lt;/li&gt; &lt;li&gt;Cleaned up some naming and formatting inconsistencies.&lt;/li&gt;</summary>
+    </entry>
+    <entry>
+        <updated>2013-12-23T04:59:14.080Z</updated>
+        <title type="text">2013.05.10 - Version 1.3.9</title>
+        <id>https://github.com/rackspace/pyrax/blob/master/RELEASENOTES.md#20130510---version-139</id>
+        <link href="https://github.com/rackspace/pyrax/blob/master/RELEASENOTES.md#20130510---version-139"/>
+        <summary type="html">&lt;li&gt;This fixes two issues: #63 and #67. The first fixes an incorrect path in the cloudfiles get_temp_url() function; the second adds the ability to specify the content_encoding for an object in cloudfiles.&lt;/li&gt;</summary>
+    </entry>
+    <entry>
+        <updated>2013-12-23T04:59:14.081Z</updated>
+        <title type="text">2013.04.29 - Version 1.3.8</title>
+        <id>https://github.com/rackspace/pyrax/blob/master/RELEASENOTES.md#20130429---version-138</id>
+        <link href="https://github.com/rackspace/pyrax/blob/master/RELEASENOTES.md#20130429---version-138"/>
+        <summary type="html">&lt;li&gt;Fixed a bug that prevented the Cloud Servers code from running properly in the UK.&lt;/li&gt;</summary>
+    </entry>
+    <entry>
+        <updated>2013-12-23T04:59:14.082Z</updated>
+        <title type="text">2013.04.26 - Version 1.3.7</title>
+        <id>https://github.com/rackspace/pyrax/blob/master/RELEASENOTES.md#20130426---version-137</id>
+        <link href="https://github.com/rackspace/pyrax/blob/master/RELEASENOTES.md#20130426---version-137"/>
+        <summary type="html">&lt;li&gt;Removed a lot of the duplicated identity code from the main client class. This is in anticipation of a major re-working of identity that will work with non-Rackspace OpenStack deployments.&lt;/li&gt; &lt;li&gt;Added methods to Cloud Load Balancer code to make it easier to get individual device usages and links.&lt;/li&gt; &lt;li&gt;Added a customizable delay period for Cloud DNS.&lt;/li&gt; &lt;li&gt;Changed the default behavior of utils.wait_until() to wait forever for the desired state to be reached. Previous default was 10 attempts, and it seemed that over 90% of use cases required waiting indefinitely, so the default was changed.&lt;/li&gt; &lt;li&gt;Cleaned up some of the documentation style.&lt;/li&gt;</summary>
+    </entry>
+</feed>

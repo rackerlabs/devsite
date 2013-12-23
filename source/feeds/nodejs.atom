@@ -1,0 +1,138 @@
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>pkgcloud</id>
+    <title type="text">pkgcloud Release Notes</title>
+    <subtitle type="text">The Node.js SDK for the Rackspace Cloud</subtitle>
+    <updated>2013-12-23T04:59:13.914Z</updated>
+    <author>
+        <name>The Rackspace Developer Relations Group</name>
+    </author>
+    <link
+        href="https://github.com/nodejitsu/pkgcloud/blob/master/CHANGELOG.md" rel="self"/>
+    <link href="http://developer.rackspace.com/"/>
+    <entry>
+        <updated>2013-12-23T04:59:13.927Z</updated>
+        <title type="text">v0.8.16</title>
+        <id>https://github.com/nodejitsu/pkgcloud/blob/master/CHANGELOG.md#v0816</id>
+        <link href="https://github.com/nodejitsu/pkgcloud/blob/master/CHANGELOG.md#v0816"/>
+        <summary type="html">&lt;li&gt;Add &lt;em&gt;beta&lt;/em&gt; support for Rackspace Cloud Load Balancers&lt;/li&gt;</summary>
+    </entry>
+    <entry>
+        <updated>2013-12-23T04:59:13.929Z</updated>
+        <title type="text">v0.8.15</title>
+        <id>https://github.com/nodejitsu/pkgcloud/blob/master/CHANGELOG.md#v0815</id>
+        <link href="https://github.com/nodejitsu/pkgcloud/blob/master/CHANGELOG.md#v0815"/>
+        <summary type="html">&lt;li&gt;Various fixes in openstack/rackspace compute provider&lt;/li&gt; &lt;li&gt;Added doc updates for rackspace storage provider&lt;/li&gt; &lt;li&gt;fixed a bug in rackspace dns provider&lt;/li&gt;</summary>
+    </entry>
+    <entry>
+        <updated>2013-12-23T04:59:13.931Z</updated>
+        <title type="text">v0.8.14</title>
+        <id>https://github.com/nodejitsu/pkgcloud/blob/master/CHANGELOG.md#v0814</id>
+        <link href="https://github.com/nodejitsu/pkgcloud/blob/master/CHANGELOG.md#v0814"/>
+        <summary type="html">&lt;li&gt;Added support to specify network in openstack.createServer&lt;/li&gt; &lt;li&gt;More robust error handling for API inconsistencies in Rackspace/Openstack&lt;/li&gt;</summary>
+    </entry>
+    <entry>
+        <updated>2013-12-23T04:59:13.933Z</updated>
+        <title type="text">v0.8.13</title>
+        <id>https://github.com/nodejitsu/pkgcloud/blob/master/CHANGELOG.md#v0813</id>
+        <link href="https://github.com/nodejitsu/pkgcloud/blob/master/CHANGELOG.md#v0813"/>
+        <summary type="html">&lt;li&gt;Added support for Rackspace Cloud BlockStorage&lt;/li&gt;</summary>
+    </entry>
+    <entry>
+        <updated>2013-12-23T04:59:13.934Z</updated>
+        <title type="text">v0.8.12</title>
+        <id>https://github.com/nodejitsu/pkgcloud/blob/master/CHANGELOG.md#v0812</id>
+        <link href="https://github.com/nodejitsu/pkgcloud/blob/master/CHANGELOG.md#v0812"/>
+        <summary type="html">&lt;li&gt;Changed the callback signature for openstack.identity.getTenantInfo to include body&lt;/li&gt;</summary>
+    </entry>
+    <entry>
+        <updated>2013-12-23T04:59:13.942Z</updated>
+        <title type="text">v0.8.11</title>
+        <id>https://github.com/nodejitsu/pkgcloud/blob/master/CHANGELOG.md#v0811</id>
+        <link href="https://github.com/nodejitsu/pkgcloud/blob/master/CHANGELOG.md#v0811"/>
+        <summary type="html">&lt;li&gt;Added more robust error handling for openstack.identity admin methods&lt;/li&gt;</summary>
+    </entry>
+    <entry>
+        <updated>2013-12-23T04:59:13.943Z</updated>
+        <title type="text">v0.8.10</title>
+        <id>https://github.com/nodejitsu/pkgcloud/blob/master/CHANGELOG.md#v0810</id>
+        <link href="https://github.com/nodejitsu/pkgcloud/blob/master/CHANGELOG.md#v0810"/>
+        <summary type="html">&lt;li&gt;Fixing a bug in rackspace.dns where status call can be an empty response&lt;/li&gt;</summary>
+    </entry>
+    <entry>
+        <updated>2013-12-23T04:59:13.945Z</updated>
+        <title type="text">v0.8.9</title>
+        <id>https://github.com/nodejitsu/pkgcloud/blob/master/CHANGELOG.md#v089</id>
+        <link href="https://github.com/nodejitsu/pkgcloud/blob/master/CHANGELOG.md#v089"/>
+        <summary type="html">&lt;li&gt;Fixing a bug when rackspace.dns.createRecord returns an array&lt;/li&gt;</summary>
+    </entry>
+    <entry>
+        <updated>2013-12-23T04:59:13.947Z</updated>
+        <title type="text">v0.8.8</title>
+        <id>https://github.com/nodejitsu/pkgcloud/blob/master/CHANGELOG.md#v088</id>
+        <link href="https://github.com/nodejitsu/pkgcloud/blob/master/CHANGELOG.md#v088"/>
+        <summary type="html">&lt;li&gt;Adding support for uploading a tar.gz to Cloud files and extract on upload&lt;/li&gt; &lt;li&gt;Minor tenant changes for openstack identity providers&lt;/li&gt;</summary>
+    </entry>
+    <entry>
+        <updated>2013-12-23T04:59:13.948Z</updated>
+        <title type="text">v0.8.7</title>
+        <id>https://github.com/nodejitsu/pkgcloud/blob/master/CHANGELOG.md#v087</id>
+        <link href="https://github.com/nodejitsu/pkgcloud/blob/master/CHANGELOG.md#v087"/>
+        <summary type="html">&lt;li&gt;Adding Rackspace CloudDNS as a DNS service&lt;/li&gt;</summary>
+    </entry>
+    <entry>
+        <updated>2013-12-23T04:59:13.952Z</updated>
+        <title type="text">v0.8.5</title>
+        <id>https://github.com/nodejitsu/pkgcloud/blob/master/CHANGELOG.md#v085</id>
+        <link href="https://github.com/nodejitsu/pkgcloud/blob/master/CHANGELOG.md#v085"/>
+        <summary type="html">&lt;li&gt;Fixing a bug introduced by pre-release services listed in the Openstack Service Catalog&lt;/li&gt;</summary>
+    </entry>
+    <entry>
+        <updated>2013-12-23T04:59:13.956Z</updated>
+        <title type="text">v0.8.4</title>
+        <id>https://github.com/nodejitsu/pkgcloud/blob/master/CHANGELOG.md#v084</id>
+        <link href="https://github.com/nodejitsu/pkgcloud/blob/master/CHANGELOG.md#v084"/>
+        <summary type="html">&lt;li&gt;Rackspace provider can now validate token with admin account&lt;/li&gt; &lt;li&gt;Using through in lieu of pause-stream&lt;/li&gt;</summary>
+    </entry>
+    <entry>
+        <updated>2013-12-23T04:59:13.964Z</updated>
+        <title type="text">v0.8.3</title>
+        <id>https://github.com/nodejitsu/pkgcloud/blob/master/CHANGELOG.md#v083</id>
+        <link href="https://github.com/nodejitsu/pkgcloud/blob/master/CHANGELOG.md#v083"/>
+        <summary type="html">&lt;li&gt;Dependency bump for request (2.22.0)&lt;/li&gt; &lt;li&gt;Support internal Openstack service URLs&lt;/li&gt;</summary>
+    </entry>
+    <entry>
+        <updated>2013-12-23T04:59:13.965Z</updated>
+        <title type="text">v0.8.2</title>
+        <id>https://github.com/nodejitsu/pkgcloud/blob/master/CHANGELOG.md#v082</id>
+        <link href="https://github.com/nodejitsu/pkgcloud/blob/master/CHANGELOG.md#v082"/>
+        <summary type="html">&lt;li&gt;Added support for File/Container metadata for Rackspace Storage&lt;/li&gt; &lt;li&gt;Adding support for Rackspace CDN enabled Containers&lt;/li&gt;</summary>
+    </entry>
+    <entry>
+        <updated>2013-12-23T04:59:13.967Z</updated>
+        <title type="text">v0.8.1</title>
+        <id>https://github.com/nodejitsu/pkgcloud/blob/master/CHANGELOG.md#v081</id>
+        <link href="https://github.com/nodejitsu/pkgcloud/blob/master/CHANGELOG.md#v081"/>
+        <summary type="html">&lt;li&gt;Added support for limit/marker options for Rackspace getContainers, getFiles&lt;/li&gt; &lt;li&gt;removed unused Rackspace.File.rm/ls/cp methods&lt;/li&gt; &lt;li&gt;Fixed a bug in File.fullPath&lt;/li&gt; &lt;li&gt;Fixed a bug in Azure header signing&lt;/li&gt;</summary>
+    </entry>
+    <entry>
+        <updated>2013-12-23T04:59:13.968Z</updated>
+        <title type="text">v0.8.0</title>
+        <id>https://github.com/nodejitsu/pkgcloud/blob/master/CHANGELOG.md#v080</id>
+        <link href="https://github.com/nodejitsu/pkgcloud/blob/master/CHANGELOG.md#v080"/>
+        <summary type="html">&lt;li&gt;Rewrote Rackspace Client to derive from Openstack Client&lt;/li&gt; &lt;li&gt;Updated Rackspace &amp;amp; Openstack createClient calls to take a proper URI for authUrl&lt;/li&gt; &lt;li&gt;Added support to specify region in Rackspace &amp;amp; Openstack createClient options&lt;/li&gt; &lt;li&gt;Added the ability to automatically re-authenticate on token expiry&lt;/li&gt;</summary>
+    </entry>
+    <entry>
+        <updated>2013-12-23T04:59:13.978Z</updated>
+        <title type="text">v0.7.3</title>
+        <id>https://github.com/nodejitsu/pkgcloud/blob/master/CHANGELOG.md#v073</id>
+        <link href="https://github.com/nodejitsu/pkgcloud/blob/master/CHANGELOG.md#v073"/>
+        <summary type="html">&lt;li&gt;Fixed inline authentication for streaming to rackspace/openstack storage #109&lt;/li&gt; &lt;li&gt;Fixed S3 multi-part upload signing #137&lt;/li&gt; &lt;li&gt;Optimized S3 upload #124&lt;/li&gt; &lt;li&gt;Fixed Rackspace authentication to return error on unauthorized #140&lt;/li&gt;</summary>
+    </entry>
+    <entry>
+        <updated>2013-12-23T04:59:13.995Z</updated>
+        <title type="text">v0.7.2</title>
+        <id>https://github.com/nodejitsu/pkgcloud/blob/master/CHANGELOG.md#v072</id>
+        <link href="https://github.com/nodejitsu/pkgcloud/blob/master/CHANGELOG.md#v072"/>
+        <summary type="html">&lt;li&gt;Added a pkgcloud User-Agent for outbound HTTP requests #134&lt;/li&gt; &lt;li&gt;Added tests for core compute method signatures&lt;/li&gt;</summary>
+    </entry>
+</feed>

@@ -1,0 +1,24 @@
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>openstack.net</id>
+    <title type="text">openstack.net Release Notes</title>
+    <subtitle type="text">The Microsoft .NET SDK for the Rackspace Cloud</subtitle>
+    <updated>2013-12-23T04:59:13.902Z</updated>
+    <author>
+        <name>The Rackspace Developer Relations Group</name>
+    </author>
+    <link
+        href="https://github.com/openstacknetsdk/openstack.net/wiki/Feature-Support" rel="self"/>
+    <link href="http://developer.rackspace.com/"/>
+    <entry>
+        <updated>2013-12-23T04:59:13.906Z</updated>
+        <title type="text">v1.0</title>
+        <id>https://github.com/openstacknetsdk/openstack.net/wiki/V1.0-Release-Notes</id>
+        <link href="https://github.com/openstacknetsdk/openstack.net/wiki/V1.0-Release-Notes"/>
+    </entry>
+    <entry>
+        <updated>2013-12-23T04:59:13.911Z</updated>
+        <title type="text">v1.1</title>
+        <id>https://github.com/openstacknetsdk/openstack.net/wiki/V1.1-Release-Notes</id>
+        <link href="https://github.com/openstacknetsdk/openstack.net/wiki/V1.1-Release-Notes"/>
+    </entry>
+</feed>

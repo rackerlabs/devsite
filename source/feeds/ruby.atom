@@ -1,0 +1,130 @@
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title type="text">fog Release Notes</title>
+    <subtitle type="text">The Ruby SDK for the Rackspace Cloud</subtitle>
+    <updated>2013-12-23T04:59:14.090Z</updated>
+    <author>
+        <name>The Rackspace Developer Relations Group</name>
+    </author>
+    <link href="https://github.com/fog/fog/blob/master/changelog.txt" rel="self"/>
+    <link href="http://developer.rackspace.com/"/>
+    <entry>
+        <updated>2013-12-23T04:59:14.136Z</updated>
+        <title type="text">1.19.0 12/19/2013</title>
+        <id>https://github.com/fog/fog/blob/master/changelog.txt</id>
+        <link href="https://github.com/fog/fog/blob/master/changelog.txt"/>
+    </entry>
+    <entry>
+        <updated>2013-12-23T04:59:14.137Z</updated>
+        <title type="text">1.18.0 10/31/2013</title>
+        <id>https://github.com/fog/fog/blob/master/changelog.txt</id>
+        <link href="https://github.com/fog/fog/blob/master/changelog.txt"/>
+    </entry>
+    <entry>
+        <updated>2013-12-23T04:59:14.139Z</updated>
+        <title type="text">1.17.0 10/29/2013</title>
+        <id>https://github.com/fog/fog/blob/master/changelog.txt</id>
+        <link href="https://github.com/fog/fog/blob/master/changelog.txt"/>
+    </entry>
+    <entry>
+        <updated>2013-12-23T04:59:14.140Z</updated>
+        <title type="text">1.16.0 10/16/2013</title>
+        <id>https://github.com/fog/fog/blob/master/changelog.txt</id>
+        <link href="https://github.com/fog/fog/blob/master/changelog.txt"/>
+    </entry>
+    <entry>
+        <updated>2013-12-23T04:59:14.147Z</updated>
+        <title type="text">1.15.0 08/16/2013</title>
+        <id>https://github.com/fog/fog/blob/master/changelog.txt</id>
+        <link href="https://github.com/fog/fog/blob/master/changelog.txt"/>
+    </entry>
+    <entry>
+        <updated>2013-12-23T04:59:14.150Z</updated>
+        <title type="text">1.14.0 07/19/2013</title>
+        <id>https://github.com/fog/fog/blob/master/changelog.txt</id>
+        <link href="https://github.com/fog/fog/blob/master/changelog.txt"/>
+    </entry>
+    <entry>
+        <updated>2013-12-23T04:59:14.151Z</updated>
+        <title type="text">1.13.0 07/19/2013</title>
+        <id>https://github.com/fog/fog/blob/master/changelog.txt</id>
+        <link href="https://github.com/fog/fog/blob/master/changelog.txt"/>
+    </entry>
+    <entry>
+        <updated>2013-12-23T04:59:14.152Z</updated>
+        <title type="text">1.12.1 06/11/2013</title>
+        <id>https://github.com/fog/fog/blob/master/changelog.txt</id>
+        <link href="https://github.com/fog/fog/blob/master/changelog.txt"/>
+    </entry>
+    <entry>
+        <updated>2013-12-23T04:59:14.153Z</updated>
+        <title type="text">1.12.0 06/11/2013</title>
+        <id>https://github.com/fog/fog/blob/master/changelog.txt</id>
+        <link href="https://github.com/fog/fog/blob/master/changelog.txt"/>
+    </entry>
+    <entry>
+        <updated>2013-12-23T04:59:14.154Z</updated>
+        <title type="text">1.11.1 05/05/2013</title>
+        <id>https://github.com/fog/fog/blob/master/changelog.txt</id>
+        <link href="https://github.com/fog/fog/blob/master/changelog.txt"/>
+    </entry>
+    <entry>
+        <updated>2013-12-23T04:59:14.158Z</updated>
+        <title type="text">1.11.0 05/04/2013</title>
+        <id>https://github.com/fog/fog/blob/master/changelog.txt</id>
+        <link href="https://github.com/fog/fog/blob/master/changelog.txt"/>
+    </entry>
+    <entry>
+        <updated>2013-12-23T04:59:14.162Z</updated>
+        <title type="text">1.10.1 04/04/2013</title>
+        <id>https://github.com/fog/fog/blob/master/changelog.txt</id>
+        <link href="https://github.com/fog/fog/blob/master/changelog.txt"/>
+    </entry>
+    <entry>
+        <updated>2013-12-23T04:59:14.165Z</updated>
+        <title type="text">1.10.0 03/05/2013</title>
+        <id>https://github.com/fog/fog/blob/master/changelog.txt</id>
+        <link href="https://github.com/fog/fog/blob/master/changelog.txt"/>
+    </entry>
+    <entry>
+        <updated>2013-12-23T04:59:14.167Z</updated>
+        <title type="text">1.9.0 01/19/2013</title>
+        <id>https://github.com/fog/fog/blob/master/changelog.txt</id>
+        <link href="https://github.com/fog/fog/blob/master/changelog.txt"/>
+    </entry>
+    <entry>
+        <updated>2013-12-23T04:59:14.168Z</updated>
+        <title type="text">1.8.0 12/01/2012</title>
+        <id>https://github.com/fog/fog/blob/master/changelog.txt</id>
+        <link href="https://github.com/fog/fog/blob/master/changelog.txt"/>
+    </entry>
+    <entry>
+        <updated>2013-12-23T04:59:14.170Z</updated>
+        <title type="text">1.7.0 11/04/2012</title>
+        <id>https://github.com/fog/fog/blob/master/changelog.txt</id>
+        <link href="https://github.com/fog/fog/blob/master/changelog.txt"/>
+    </entry>
+    <entry>
+        <updated>2013-12-23T04:59:14.172Z</updated>
+        <title type="text">1.6.0 09/15/2012</title>
+        <id>https://github.com/fog/fog/blob/master/changelog.txt</id>
+        <link href="https://github.com/fog/fog/blob/master/changelog.txt"/>
+    </entry>
+    <entry>
+        <updated>2013-12-23T04:59:14.173Z</updated>
+        <title type="text">1.5.0 07/28/2012</title>
+        <id>https://github.com/fog/fog/blob/master/changelog.txt</id>
+        <link href="https://github.com/fog/fog/blob/master/changelog.txt"/>
+    </entry>
+    <entry>
+        <updated>2013-12-23T04:59:14.174Z</updated>
+        <title type="text">1.4.0 06/24/2012</title>
+        <id>https://github.com/fog/fog/blob/master/changelog.txt</id>
+        <link href="https://github.com/fog/fog/blob/master/changelog.txt"/>
+    </entry>
+    <entry>
+        <updated>2013-12-23T04:59:14.184Z</updated>
+        <title type="text">1.3.1 03/27/2012</title>
+        <id>https://github.com/fog/fog/blob/master/changelog.txt</id>
+        <link href="https://github.com/fog/fog/blob/master/changelog.txt"/>
+    </entry>
+</feed>
