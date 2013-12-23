@@ -1,0 +1,29 @@
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>jclouds</id>
+    <title type="text">jclouds Release Notes</title>
+    <subtitle type="text">The Java SDK (powered by Apache jclouds) for the Rackspace Cloud</subtitle>
+    <updated>2013-12-23T04:59:13.848Z</updated>
+    <author>
+        <name>The Rackspace Developer Relations Group</name>
+    </author>
+    <link href="http://jclouds.apache.org/documentation/releasenotes/" rel="self"/>
+    <link href="http://developer.rackspace.com/"/>
+    <entry>
+        <updated>2013-12-23T04:59:13.881Z</updated>
+        <title type="text">1.6.3</title>
+        <id>http://jclouds.apache.org/documentation/releasenotes/1.6.3</id>
+        <link href="http://jclouds.apache.org/documentation/releasenotes/1.6.3"/>
+    </entry>
+    <entry>
+        <updated>2013-12-23T04:59:13.892Z</updated>
+        <title type="text">1.6.2</title>
+        <id>http://jclouds.apache.org/documentation/releasenotes/1.6.2</id>
+        <link href="http://jclouds.apache.org/documentation/releasenotes/1.6.2"/>
+    </entry>
+    <entry>
+        <updated>2013-12-23T04:59:13.900Z</updated>
+        <title type="text">1.6.1</title>
+        <id>http://jclouds.apache.org/documentation/releasenotes/1.6.1</id>
+        <link href="http://jclouds.apache.org/documentation/releasenotes/1.6.1"/>
+    </entry>
+</feed>
