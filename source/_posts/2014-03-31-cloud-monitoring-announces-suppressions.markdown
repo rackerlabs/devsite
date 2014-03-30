@@ -15,16 +15,16 @@ Today the Cloud Monitoring team is excited to announce suppressions. Suppression
 
 <!--more-->
 
-Creating a suppression consists of specifying a set of targets, a start time, and an end time. While a suppression is active, any notifications triggered associated with the specifiied targets will not be sent, and instead a suppression log will be created. The suppression log contains important information about the notification that would have been sent so that you always have full visibility into what is happening. Once the suppression expires, notifications will resume as expected. Much like how careful we are when we send notifications to you, we wanted to be sure to provide a way for you to be just as careful when choosing which notifications to not receive. 
+Creating a suppression consists of specifying a set of suppression targets, a start time, and an end time. While a suppression is active, any notifications triggered associated with the specifiied targets will not be sent, and instead a suppression log will be created. The suppression log contains important information about the notification that would have been sent. This means that you always have full visibility into what is happening. Once the suppression expires, notifications will resume as expected.
 
-There are 4 types of targets that you can specify:
+Much like how careful we are when we send notifications to you, we wanted to be sure to provide a way for you to be just as careful when choosing which notifications to not receive. There are 4 types of targets that you can specify:
 
  * notification plans - A notification plan tells an alarm how to notify you when its state changes.
  * entities - An entity represents a collection of monitoring checks. Most of the time this correlates to a single server.
  * checks - Checks are what actually run and generate metrics so that we can make decisions about the health of your system.
  * alarms - Alarms let us know how to respond to the metrics gathered by checks, and how to let you know what we decide.
 
-With the exception of notification plans, targets are combined so that they expand the scope of the suppression. The resulting filter will be the union of the entities, checks, and alarms targets. If a notification plan's target is specified in addition to the other targets, the scope of the suppression is limited to notifications that match those targets *and* the given notification plan. This expression shows how the suppression filter is created:
+Unlike notification plan targets, the entity, alarm, and check targets are combined so that they expand the scope of the suppression. The resulting filter will be the union of these three targets. If a notification plan's target is specified in addition to the other targets, the scope of the suppression is limited to notifications that match those targets *and* the given notification plan. This expression shows how the suppression filter is created:
  
 `suppressionFilter = (entities || checks || alarms) && notification plans`
 
@@ -48,7 +48,7 @@ $ raxmon-suppression-logs-list
 Total: 2
 ```
 
-You can think of these suppression logs as the "paper trail" of suppressed notifications. It is very important to us that we ensure that at any time you will know exactly what happened when, and why you did or did not hear about it.
+You can think of these suppression logs as the "paper trail" of suppressed notifications. We feel it is very important to ensure that at any time you will know exactly what happened when, and why you did or did not hear about it.
 
 You can read more about suppressions and how they are used in our [API documentation](http://docs.rackspace.com/cm/api/v1.0/cm-devguide/content/overview.html).
 
