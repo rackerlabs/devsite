@@ -16,7 +16,35 @@ If you haven't already heard about [HeartBleed](http://heartbleed.com/), it's ab
 
 # Upgrade your servers
 
-For most boxes, upgrading is as simple as running `apt-get update && apt-get upgrade` or `yum -y update openssl` as most distributions got the patch in the repositories as quickly as possible.
+For most boxes, upgrading is as simple as using your package manager. Most distributions got the patch in their repositories as quickly as possible.
+
+## Debian/Ubuntu
+```
+sudo apt-get update
+sudo apt-get upgrade
+```
+
+or
+
+## RHEL/CentOS/Fedora
+```
+yum -y update openssl
+```
+
+If you're using DevOps tools, there's another path to take
+
+## SaltStack
+
+```
+salt \* pkg.install openssl refresh=True
+```
+
+## Chef
+
+```
+
+```
+
 
 Even after your upgrade, make sure you don't have any processes with the old OpenSSL still running. Either restart services, kill the processes, or reboot the box.
 
