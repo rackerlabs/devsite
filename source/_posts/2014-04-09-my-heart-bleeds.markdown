@@ -16,7 +16,7 @@ If you haven't already heard about [HeartBleed](http://heartbleed.com/), it's ti
 
 # Upgrade your servers
 
-For most boxes, upgrading is as simple as using your package manager. Most distributions got the patch in their repositories as quickly as possible.
+For most servers, upgrading is as simple as using your package manager. Most distributions got the patch in their repositories as quickly as possible.
 
 ## Command line upgrades
 
