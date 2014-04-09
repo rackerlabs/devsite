@@ -3,7 +3,7 @@ layout: post
 title: "My Heart Bleeds for You"
 date: 2014-04-09 10:45
 comments: true
-author: Kyle Kelley & Hart Hoover
+author: Kyle Kelley, Hart Hoover, and Ash Wilson
 published: false
 categories:
  - Security
