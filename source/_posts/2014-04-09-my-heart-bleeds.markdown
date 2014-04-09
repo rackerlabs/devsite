@@ -48,19 +48,25 @@ Ansible has their own article on [fixing heartbleed with Ansible](http://www.ans
     - libssl1.0.0
     - openssl
 ```
-salt \* pkg.install openssl refresh=True
+
+The full play has some other neat goodies including restarting known affected services and checking that we don't have other affected processes running. Check the [whole gist](https://gist.github.com/carsongee/10137729) out to see a really great play.
+
+### SaltStack
+
+```bash
+$ salt \* pkg.install openssl refresh=True
 ```
 
 ### Chef
 
 Using knife:
-```
-knife ssh -a ipaddress "chef_environment:*" "sudo apt-get update && sudo apt-get install openssl"
+```bash
+$ knife ssh -a ipaddress "chef_environment:*" "sudo apt-get update && sudo apt-get install openssl"
 ```
 
 Alternatively, you can add this to your recipes, taking care to restart services:
 
-```
+```ruby
 %w{ openssl libssl1.0.0 }.each do |pkg|
   package pkg do
     action :upgrade
@@ -77,7 +83,7 @@ Even after your upgrade, make sure you don't have any processes with the old Ope
 
 To find them, use this command to list open files with ssl in the name where the file is marked as deleted or comes up as "No such file".
 
-```
+```bash
 lsof -n | grep ssl | grep -P '(DEL|No such)'
 ```
 
