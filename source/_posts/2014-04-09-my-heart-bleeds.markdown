@@ -28,7 +28,7 @@ sudo apt-get upgrade
 
 ### RHEL/CentOS/Fedora
 ```
-yum -y update openssl
+yum -y update openssl libssl1.0.0
 ```
 
 ## DevOps Tools
@@ -51,9 +51,11 @@ knife ssh -a ipaddress "chef_environment:*" "sudo apt-get update && sudo apt-get
 Alternatively, you can add this to your recipes, taking care to restart services:
 
 ```
-package ‘openssl’ do
-  action :upgrade
-  notifies :reload, "service[SERVICE]", :delayed
+%w{ openssl libssl1.0.0 }.each do |pkg|
+  package pkg do
+    action :upgrade
+    notifies :reload, "service[SERVICE]", :delayed
+  end
 end
 ```
 
