@@ -75,7 +75,14 @@ lsof -n | grep ssl | grep -P '(DEL|No such)'
 
 The biggest concern out of HeartBleed is the potential leakage of credentials from your users.
 
-I'm talking about passwords, OAuth tokens, API Keys, and session cookies. Any attacker that went after your system prior to your upgrade could have stolen information.
+We're talking about
+
+* Passwords
+* OAuth Tokens
+* API Keys
+* Session cookies
+
+For your users' sake, force them to change these credentials on your web services and expire their previous sessions. Any attacker that went after your system prior to your upgrade could have stolen data.
 
 That also includes *your* API keys. For the sake of safety, we highly recommend doing this with your Rackspace account as well.
 
