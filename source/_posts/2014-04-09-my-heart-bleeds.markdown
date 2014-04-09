@@ -24,8 +24,6 @@ sudo apt-get update
 sudo apt-get upgrade
 ```
 
-or
-
 ## RHEL/CentOS/Fedora
 ```
 yum -y update openssl
@@ -41,7 +39,7 @@ salt \* pkg.install openssl refresh=True
 
 ## Chef
 
-To run these commands using knife:
+Using knife:
 ```
 knife ssh -a ipaddress "chef_environment:*" "sudo apt-get update && sudo apt-get install openssl"
 ```
@@ -56,6 +54,8 @@ end
 ```
 
 If you are using configuration management and the cloud, you may want to deploy new instances, swapping them into load balancer pools and such as needed.
+
+# After the upgrade, restart services
 
 Even after your upgrade, make sure you don't have any processes with the old OpenSSL still running. Either restart services, kill the processes, or reboot the box.
 
