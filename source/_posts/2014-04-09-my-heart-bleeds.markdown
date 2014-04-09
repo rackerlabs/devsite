@@ -3,7 +3,7 @@ layout: post
 title: "My Heart Bleeds for You"
 date: 2014-04-09 10:45
 comments: true
-author: Kyle Kelley
+author: Kyle Kelley & Hart Hoover
 published: false
 categories:
  - Security
@@ -41,10 +41,21 @@ salt \* pkg.install openssl refresh=True
 
 ## Chef
 
+To run these commands using knife:
+```
+knife ssh -a ipaddress "chef_environment:*" "sudo apt-get update && sudo apt-get install openssl"
 ```
 
+Alternatively, you can add this to your recipes, taking care to restart services:
+
+```
+package ‘openssl’ do
+  action :upgrade
+  notifies :reload, "service[SERVICE]", :delayed
+end
 ```
 
+If you are using configuration management and the cloud, you may want to deploy new instances, swapping them into load balancer pools and such as needed.
 
 Even after your upgrade, make sure you don't have any processes with the old OpenSSL still running. Either restart services, kill the processes, or reboot the box.
 
