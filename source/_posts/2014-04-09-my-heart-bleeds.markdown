@@ -84,7 +84,3 @@ To do this for your Rackspace account, log in to [the MyCloud portal](https://my
 On the account settings page, click the pencil icon to change your password, and use the "Reset..." link to generate a new API key:
 
 {% img /images/2014-04-09-my-heart-bleeds/reset.png 'Reset password and API Key' 'Reset password and API Key' %}
-
-## Regenerate your SSH keys
-
-Since the vulnerability is bidirectional, malicious servers can read memory from vulnerable clients, too. For this reason, you should consider any private SSH keys compromised, and [generate new ones](https://help.github.com/articles/generating-ssh-keys).
