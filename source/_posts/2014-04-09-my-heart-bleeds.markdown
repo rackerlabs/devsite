@@ -65,17 +65,25 @@ To find them, use this command to list open files with ssl in the name where the
 lsof -n | grep ssl | grep -P '(DEL|No such)'
 ```
 
-# Change your passwords
+# Protect your users
+
+The biggest concern out of HeartBleed is the potential leakage of credentials from your users.
+
+I'm talking about passwords, OAuth tokens, API Keys, and session cookies. Any attacker that went after your system prior to your upgrade could have stolen information.
+
+That also includes *your* API keys. For the sake of safety, we highly recommend doing this with your Rackspace account as well.
+
+## Change your Rackspace password + API Keys
 
 Because anyone could have scraped your credentials from a compromised server, it's important to reset all of your passwords and API keys as soon as you can confirm that the service has been patched.
 
 To do this for your Rackspace account, log in to [the MyCloud portal](https://mycloud.rackspace.com/) and click on your account name in the upper-right of the screen:
 
-![account menu](account-settings.png)
+{% img /images/2014-04-09-my-heart-bleeds/account-settings.png 'Account Settings' 'Username to Account Settings in the upper right' %}
 
 On the account settings page, click the pencil icon to change your password, and use the "Reset..." link to generate a new API key:
 
-![reset links](reset.png)
+{% img /images/2014-04-09-my-heart-bleeds/reset.png 'Reset password and API Key' 'Reset password and API Key' %}
 
 # Regenerate your SSH keys
 
