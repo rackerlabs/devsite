@@ -26,4 +26,18 @@ To find them, use this command to list open files with ssl in the name where the
 lsof -n | grep ssl | grep -P '(DEL|No such)'
 ```
 
-Make sure you revoke your certificates.
+# Change your passwords
+
+Because anyone could have scraped your credentials from a compromised server, it's important to reset all of your passwords and API keys as soon as you can confirm that the service has been patched.
+
+To do this for your Rackspace account, log in to [the MyCloud portal](https://mycloud.rackspace.com/) and click on your account name in the upper-right of the screen:
+
+![account menu](account-settings.png)
+
+On the account settings page, click the pencil icon to change your password, and use the "Reset..." link to generate a new API key:
+
+![reset links](reset.png)
+
+# Regenerate your SSH keys
+
+Since the vulnerability is bidirectional, malicious servers can read memory from vulnerable clients, too. For this reason, you should consider any private SSH keys compromised, and [generate new ones](https://help.github.com/articles/generating-ssh-keys).
