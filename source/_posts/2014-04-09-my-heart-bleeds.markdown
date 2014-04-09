@@ -12,7 +12,7 @@ categories:
 
 {% img /images/2014-04-09-my-heart-bleeds/heartbleed.png 'Bleeding Heart' 'My heart bleeds for you' %}
 
-If you haven't already heard about [HeartBleed](http://heartbleed.com/), it's about time you read about it and upgrade the OpenSSL version on your box(es). **This should be done regardless of whether you're using SSL/TLS currently**, in case you *deploy a service later*. This affects OpenSSL 1.0.1 through 1.0.1f (inclusive), and the relevant patch is in 1.0.1g.
+If you haven't already heard about [HeartBleed](http://heartbleed.com/), it's time you read about it and upgrade the OpenSSL version on your box(es). **This should be done regardless of whether you're using SSL/TLS currently**, in case you *deploy a service later*. This affects OpenSSL 1.0.1 through 1.0.1f (inclusive), and the relevant patch is in 1.0.1g.
 
 # Upgrade your servers
 
