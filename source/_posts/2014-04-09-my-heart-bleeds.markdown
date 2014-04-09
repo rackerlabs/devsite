@@ -35,8 +35,18 @@ yum -y update openssl libssl1.0.0
 
 If you're using DevOps tools, there's another path to take
 
-### SaltStack
+### Ansible
 
+Ansible has their own article on [fixing heartbleed with Ansible](http://www.ansible.com/blog/fixing-heartbleed-with-ansible), but here's a snippet from a play by [@carsongee](https://github.com/carsongee):
+
+```yaml
+---
+# Patch openssl+libssl
+- name: "Install packages and update cache"
+  apt: pkg="{{ item }}" state=latest update_cache=yes
+  with_items:
+    - libssl1.0.0
+    - openssl
 ```
 salt \* pkg.install openssl refresh=True
 ```
