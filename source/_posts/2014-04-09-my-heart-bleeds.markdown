@@ -113,3 +113,9 @@ To do this for your Rackspace account, log in to [the MyCloud portal](https://my
 On the account settings page, click the pencil icon to change your password, and use the "Reset..." link to generate a new API key:
 
 {% img /images/2014-04-09-my-heart-bleeds/reset.png 'Reset password and API Key' 'Reset password and API Key' %}
+
+# Relax
+
+Pat yourself on the back for helping to protect your users and the internet. You need it. If you weren't the one to patch systems, go thank your Ops folks. Major props to HeartBleed for completely viral marketing that made people patch fast.
+
+This whole incident should teach us all how much of the web relies on open source and how we need to continue to support it for years to come. This confirms our [resolution to support open source and open source development](http://www.rackspace.com/blog/rackspaces-policy-on-contributing-to-open-source/).
