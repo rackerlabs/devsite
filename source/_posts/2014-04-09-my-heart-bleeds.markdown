@@ -7,12 +7,12 @@ author: Kyle Kelley, Hart Hoover, and Ash Wilson
 published: false
 categories:
  - Security
- - HeartBleed
+ - Heartbleed
 ---
 
 {% img /images/2014-04-09-my-heart-bleeds/heartbleed.png 'Bleeding Heart' 'My heart bleeds for you' %}
 
-If you haven't already heard about [HeartBleed](http://heartbleed.com/), it's time you read about it and upgrade the OpenSSL version on your box(es). **This should be done regardless of whether you're using SSL/TLS currently**, in case you *deploy a service later*. This affects OpenSSL 1.0.1 through 1.0.1f (inclusive), and the relevant patch is in 1.0.1g.
+If you haven't already heard about [Heartbleed](http://heartbleed.com/), it's time you read about it and upgrade the OpenSSL version on your box(es). **This should be done regardless of whether you're using SSL/TLS currently**, in case you *deploy a service later*. This affects OpenSSL 1.0.1 through 1.0.1f (inclusive), and the relevant patch is in 1.0.1g.
 
 # Upgrade your servers
 
@@ -89,7 +89,7 @@ lsof -n | grep ssl | grep -P '(DEL|No such)'
 
 # Protect your users, protect yourself
 
-The biggest concern out of HeartBleed is the potential leakage of credentials from your users.
+The biggest concern out of Heartbleed is the potential leakage of credentials from your users.
 
 We're talking about
 
@@ -116,6 +116,6 @@ On the account settings page, click the pencil icon to change your password, and
 
 # Relax
 
-Pat yourself on the back for helping to protect your users and the internet. You need it. If you weren't the one to patch systems, go thank your Ops folks. Major props to HeartBleed for completely viral marketing that made people patch fast.
+Pat yourself on the back for helping to protect your users and the internet. You need it. If you weren't the one to patch systems, go thank your Ops folks. Major props to Heartbleed for completely viral marketing that made people patch fast.
 
 This whole incident should teach us all how much of the web relies on open source and how we need to continue to support it for years to come. This confirms our [resolution to support open source and open source development](http://www.rackspace.com/blog/rackspaces-policy-on-contributing-to-open-source/).
