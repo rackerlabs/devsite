@@ -65,7 +65,7 @@ To find them, use this command to list open files with ssl in the name where the
 lsof -n | grep ssl | grep -P '(DEL|No such)'
 ```
 
-# Protect your users
+# Protect your users, protect yourself
 
 The biggest concern out of HeartBleed is the potential leakage of credentials from your users.
 
@@ -85,6 +85,6 @@ On the account settings page, click the pencil icon to change your password, and
 
 {% img /images/2014-04-09-my-heart-bleeds/reset.png 'Reset password and API Key' 'Reset password and API Key' %}
 
-# Regenerate your SSH keys
+## Regenerate your SSH keys
 
 Since the vulnerability is bidirectional, malicious servers can read memory from vulnerable clients, too. For this reason, you should consider any private SSH keys compromised, and [generate new ones](https://help.github.com/articles/generating-ssh-keys).
