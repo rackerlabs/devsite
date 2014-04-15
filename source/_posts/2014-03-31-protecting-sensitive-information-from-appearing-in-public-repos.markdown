@@ -1,18 +1,41 @@
 ---
 layout: post
 title: "Protecting Sensitive Information From Appearing in Public Repos"
-date: 2014-03-31 16:45
+date: 2014-04-15 10:30
 comments: true
 author: Sri Rajan
-published: false
-categories: git,security,programming
+published: true
+categories:
+ - git
+ - Security
+ - Programming
 ---
 
 
-In the last several years and with the advent of social coding sites like GitHub, there has been an increasing openness in code sharing. This is great on so many levels as it promotes the open source model, and in general is a nice thing.  One security side effect has been the accidental disclosure of sensitive information in the code that is shared publically.  This problem existed before with things like database or SMTP passwords in configuration files but in the world of cloud and API keys this problem increases in its severity. Whereas database servers were generally well protected and so even accidentally revealing the password was not the worst thing to happen, exposing API keys on public repositories has serious consequences. You have given someone the keys to your whole cloud kingdom. With these keys one can spin up servers, view your data, upload illegal data and the list goes on. Hackers are most likely searching on these repositories for such information.  We recently had a good debate in the Rackspace tech community on this topic and this post tries to present some best practices and also some ways to clean up should it happen.
+In the last several years and with the advent of social coding sites like
+GitHub, there has been an increasing openness in code sharing. This is great
+on so many levels as it promotes the open source model, and in general is a
+nice thing.
 
-Prevention is better than cure
-=====
+One security side effect has been the accidental disclosure of sensitive
+information in the code that is shared publically.  This problem existed
+before with things like database or SMTP passwords in configuration files
+but in the world of cloud and API keys this problem increases in its severity.
+
+Whereas database servers were generally well protected and so even accidentally
+revealing the password was not the worst thing to happen, exposing API keys on
+public repositories has serious consequences. You have given someone the keys
+to your whole cloud kingdom. With these keys one can spin up servers, view
+your data, upload illegal data and the list goes on. Hackers are most likely
+searching on these repositories for such information.
+
+We recently had a good debate in the Rackspace tech community on this topic
+and this post tries to present some best practices and also some ways to
+clean up should it happen.
+
+<!-- more -->
+
+### Prevention is better than cure
 
 
 With a bit of discipline you can avoid this in the first place. Commits to public version control sites are VERY difficult, if not impossible to ever remove.
@@ -27,7 +50,7 @@ Define a strict naming convention for sensitive files and use global git ignore 
 
 Never store the values in a variable. Just get your programming language to pull it off system variables.
 
-For e.g. in Python you can do this 
+For e.g. in Python you can do this
 
 {% codeblock lang:python %}
 # cloud auth data will be pulled from environment
@@ -62,60 +85,33 @@ git-crypt enables transparent encryption and decryption of files in a git reposi
 
 git-crypt is not designed to encrypt an entire repository. Also note that git-crypt usese git's smudge and clean features (ref ([Git Attributes](http://git-scm.com/docs/gitattributes)), which was not the original intent of those features.  git-crypt does not itself provide any authentication. It assumes that either the master copy of your repository is stored securely, or that you are using git's existing facilities to ensure integrity (signed tags, remembering commit hashes, etc.). It maybe worth noting that git-crypt uses deterministic encryption which is something that should be taken into consideration.
 
-<br/>
-<br/>
 
-Accidents Happen
-=====
+### Accidents Happen
+
 
 There will always be cases where you accidentally commit a file with such information or you find that in an audit. There are few things you can do here
 
 
  * Change the exposed passwords or keys. This is a must do, must be done immediately and the best way to ensure the security.
-
-<br/>
-<br/>
-
-
  * If your internal policy requires notification of such incidents to the security team, make sure you do that. Often these teams have additional tools and know-how on how to tackle the incident and limit damage.
-
-<br/>
-<br/>
-
-
  * Fix the problem that caused it. Implement or follow one of the best practices above.
-
-<br/>
-<br/>
-
-
  * Cleaning up from git - If using Git remove the file from history and add it to the. gitignore to ensure it is not accidentally re-committed. Here's a step by step guide from GitHub on [Removing Sensitive Data](https://help.github.com/articles/remove-sensitive-data)
 
-<br/>
-<br/>
+### Auditing
 
+It would be nice to implement a scanner of sorts to actively look for these in your code repositories. At the least, you can run searches on GitHub to look for known patterns.
 
-Auditing
-=====
-It would be nice to implement a scanner of sorts to actively look for these in your code repositories. At the least, you can run searches on GitHub to look for known patterns.  
-
-Here's an example of searching for the string rackspace_api_key on GitHub.  
+Here's an example of searching for the string rackspace_api_key on GitHub.
 
 [Git Search Example](https://github.com/search?p=2&q=rackspace_api_key&ref=searchresults&type=Code) is a good such example.
-
 
 A pre-commit scanner that checks for these things and possibly has a list of the keys and passwords to check as well will be a good add-on. An importantly don't check in the code for the scanner/hook on a public site as this has the very keys you need to protect :-)
 
 
-<br/>
-<br/>
+### Authors and Credits
 
-Authors and Credits
-=====
-Sriram(Sri) Rajan - Principal Engineer, Rackspace
-
-Christian Ashby- Senior Solutions Engineer, Rackspace
-
-Greg Anderson - Software Security Engineer, Rackspace
+* Sriram(Sri) Rajan - Principal Engineer, Rackspace
+* Christian Ashby- Senior Solutions Engineer, Rackspace
+* Greg Anderson - Software Security Engineer, Rackspace
 
 
