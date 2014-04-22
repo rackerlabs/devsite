@@ -1,11 +1,11 @@
 ---
 layout: post
 title: "Rolling Deployments with Ansible and Cloud Load Balancers"
-date: 2014-04-16 13:02
+date: 2014-04-22 10:00
 comments: true
 author: Jesse Keating
-published: false
-categories: 
+published: true
+categories:
  - cloud load balancers
  - ansible
  - pyrax
@@ -36,7 +36,7 @@ First we're going to use the [rax_clb][3] module to discover data about the load
   hosts: localhost
   gather_facts: no
   connection: local
-  
+
   tasks:
     - name: discover load balancer details
       rax_clb: name=app-lb1 port=80 protocol=HTTP type=PUBLIC
@@ -124,12 +124,12 @@ Speaking of tasks, lets add them in! Remember we need to set nodes to draining, 
                      condition=disabled wait=true
                      credentials=/path/to/credentials
       delegate_to: localhost
-    
+
     # place holder task to deploy the code, could be many tasks here
     # including tasks to validate the deploy
     - name: deploy the code
       command: echo "successful deploy"
-    
+
     - name: re-enable the node
       rax_clb_nodes: load_balancer_id={{ lb_id }}
                      node_id={{ inventory_hostname }}
