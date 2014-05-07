@@ -212,7 +212,8 @@ function httpRequester(config) {
 Conclusion
 ---
 
-All the api calls/ajax requests for our application go through this service which also gives us an opportunity to add other additional features. For example, this is an appropriate place to add/configure a cache for the application to avoid making the same calls to the server. I added the cache, which can be configured for individual resource/http requests, all you need to do is pass in a cache config object as well in addition to the config for resource/http. Our application uses angular-cache which is a feature-packed replacement for the built in Angular cache. 
+All the api calls/ajax requests for our application go through this service which also gives us an opportunity to add other additional features. For example, this is an appropriate place to add/configure a cache for the application to avoid making the same calls to the server. I added the cache, which can be configured for individual resource/http requests, all you need to do is pass in a cache config object as well in addition to the config for resource/http. Our application uses angular-cache which is a feature-packed replacement for the built in Angular cache.
+
 ```javascript
 return {
 
