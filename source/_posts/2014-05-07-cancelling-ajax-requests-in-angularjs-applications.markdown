@@ -212,18 +212,17 @@ function httpRequester(config) {
 Conclusion
 ---
 
-All the api calls/ajax requests for our application go through this service which also gives us an opportunity to add other additional features. For example, this is an appropriate place to add/configure a cache for the application to avoid making the same calls to the server. I added the cache, which can be configured for individual resource/http requests, all you need to do is pass in a cache config object as well in addition to the config for resource/http. Our application uses angular-cache which is a feature-packed replacement for the built in Angular cache. 
+All the api calls/ajax requests for our application go through this service which also gives us an opportunity to add other additional features. For example, this is an appropriate place to add/configure a cache for the application to avoid making the same calls to the server. I added the cache, which can be configured for individual resource/http requests, all you need to do is pass in a cache config object as well in addition to the config for resource/http. Our application uses angular-cache which is a feature-packed replacement for the built in Angular cache.
+
 ```javascript
-return {
-
-  createResource: function(config) {
-    return createSageResource(config);
-  },
-
-  createHttpRequester: function(config) {
-    return httpRequester(config);
-  }
- };
- ```
+  return {
+    createResource: function(config) {
+      return createSageResource(config);
+    },
+    createHttpRequester: function(config) {
+      return httpRequester(config);
+    }
+  };
+```
 
 Finally, I just exposed both the apis in the service like above. In a large data visualization application like ours, we make many Ajax calls for various quick user interactions, navigating away from a page, etc. and this service was much needed to abort calls which were no more relevant, cache required calls, etc. This made the application much faster, show correct information and very responsive to user input.
