@@ -13,13 +13,7 @@ categories:
 
 > Creating $resource and $http which can be aborted efficiently
 
-We, at Rackspace are working on a data visualization dashboard which uses
-AngularJS framework and we needed to abort requests. Fortunately, AngularJS
-has amazing built in services of which $http and $resource help us make these
-XHR(Ajax) requests much simpler. There are many resources to figure out which
-might be better for your use case. I’m going to describe how I implemented
-aborts in $resource and $http in an unified way which increased the
-performance and show correct data.
+We, at Rackspace are working on a data visualization dashboard which uses [AngularJS](http://angularjs.org/) framework and we needed to abort requests. Fortunately, AngularJS has amazing built in services of which [$http](http://docs.angularjs.org/api/ng/service/$http) and [$resource](http://docs.angularjs.org/api/ngResource/service/$resource) help us make these XHR(Ajax) requests much simpler. There are many resources to figure out which might be better for your use case. I’m going to describe how I implemented aborts in $resource and $http in an unified way which increased the performance and show correct data.
 
 <!--more-->
 
@@ -40,7 +34,9 @@ Abort using timeout property
 
 Initially, we discovered that when creating a $resource or $http you can set a timeout property in the config object which you can use to abort requests. 
 
+```bash
 >timeout — {number|Promise} — timeout in milliseconds, or promise that should abort >the request when resolved.
+```
 
 So we created a ResourceHelper service which exposes apis to create a $resource with an aborter promise set on the timeout property. This aborter promise can be used to abort the request. Like below, 
 
@@ -83,7 +79,7 @@ Abort using promises
 --------
 
 
-The previous implementation worked but there’s still room for improvement and I wanted a better way to abort requests as recreating $resource every time a request is aborted was not efficient. After considering other options like contributing to AngularJS codebase, using a decorator (which is great), I discovered the power of promises, promises make engineer brains work better! Here is a great video on promises by Christian at Ng-conf. Instead of setting the $promise in the timeout property in the internal config, the solution I came up with uses a promise as a wrapper around the $promise returned when we create a $resource or $http.  This wrapper promise is used to abort requests.
+The previous implementation worked but there’s still room for improvement and I wanted a better way to abort requests as recreating $resource every time a request is aborted was not efficient. After considering other options like contributing to AngularJS codebase, using a [decorator](http://docs.angularjs.org/api/auto/object/$provide#decorator) (which is great), I discovered the power of promises, promises make engineer brains work better! Here is a great [video](https://www.youtube.com/watch?v=XcRdO5QVlqE) on promises by Christian at Ng-conf. Instead of setting the $promise in the timeout property in the internal config, the solution I came up with uses a promise as a wrapper around the $promise returned when we create a $resource or $http.  This wrapper promise is used to abort requests.
 
 ```javascript
 function createResource(config) {
@@ -212,7 +208,8 @@ function httpRequester(config) {
 Conclusion
 ---
 
-All the api calls/ajax requests for our application go through this service which also gives us an opportunity to add other additional features. For example, this is an appropriate place to add/configure a cache for the application to avoid making the same calls to the server. I added the cache, which can be configured for individual resource/http requests, all you need to do is pass in a cache config object as well in addition to the config for resource/http. Our application uses angular-cache which is a feature-packed replacement for the built in Angular cache.
+All the api calls/ajax requests for our application go through this service which also gives us an opportunity to add other additional features. For example, this is an appropriate place to add/configure a cache for the application to avoid making the same calls to the server. I added the cache, which can be configured for individual resource/http requests, all you need to do is pass in a cache config object as well in addition to the config for resource/http. Our application uses [angular-cache](http://jmdobry.github.io/angular-cache/) which is a feature-packed replacement for the built in Angular cache. 
+
 
 ```javascript
   return {
