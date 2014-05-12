@@ -6,16 +6,20 @@ comments: true
 author: Jason Grimm
 published: true
 categories:
- - Cinder
- - OpenStack
- - Private Cloud
+  - Cinder
+  - OpenStack
+  - Private Cloud
 ---
 
-# Installing Cinder in Your Rackspace Private Cloud Lab Environment
+This is the first installment of installing and using OpenStack Cinder in your private cloud.
+
+<!-- more -->
+
 
 ## Environment preparation – Operating System
-
 The following configuration tasks in this section are to be completed on both chef-1 and controller-1 unless otherwise indicated.
+
+
 
 ### Install the OS
 
