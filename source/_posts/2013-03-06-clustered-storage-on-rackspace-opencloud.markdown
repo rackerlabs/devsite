@@ -4,7 +4,7 @@ title: "Clustered Storage on Rackspace Open Cloud using Cloud Networks and Cloud
 date: 2013-03-06 12:00
 comments: true
 author: Niko Gonzales
-categories: 
+categories:
 - OpenStack
 - DRBD
 - GlusterFS
@@ -28,13 +28,13 @@ In this tutorial, we're going to start off by building two servers with an inter
 
 After creating the cloud network and putting two instances on it, we'll create and attach two Cloud Block Storage volumes - one to each server. These are Luns exported directly to hypervisors and attached to instances as block devices. The highlights of CBS are that they're mobile (you can attach/detach these volumes to various servers), customizable (it's now possible to have 100GB of storage on an instance with 512MB of RAM), and relatively inexpensive.
 
-After attaching these CBS volumes to their servers, we'll use DRBD to create a replicated storage volume. If you haven't used DRBD yet, you probably have a use-case so check out their project at [drbd.org](http://www.drbd.org/). Basically it is block-level replication between servers. This technology is useful for making nearly any technology redundant. Traditionally we only see DRBD over a dedicated physical ethernet interface or bond on physical servers, but this is the cloud and we have a different model. 
+After attaching these CBS volumes to their servers, we'll use DRBD® to create a replicated storage volume. If you haven't used DRBD® yet, you probably have a use-case so check out LINBIT's project at [drbd.org](http://www.drbd.org/). Basically it is block-level replication between servers. This technology is useful for making nearly any technology redundant. Traditionally we only see DRBD® over a dedicated physical ethernet interface or bond on physical servers, but this is the cloud and we have a different model.
 
-We will initially create a DRBD volume in a Primary/Secondary configuration, then move on to a dual-primary setup and use a distributed filesystem technology called [GFS2](http://en.wikipedia.org/wiki/GFS2). Through clever locking this will allow us to have both of our servers mount the DRBD volume at the same time with read/write access.
+We will initially create a DRBD® volume in a Primary/Secondary configuration, then move on to a dual-primary setup and use a distributed filesystem technology called [GFS2](http://en.wikipedia.org/wiki/GFS2). Through clever locking this will allow us to have both of our servers mount the DRBD volume at the same time with read/write access.
 
 After GFS2 we will look at building a highly scalable GlusterFS environment on CentOS, with 4 Gluster servers in distributed replica-2 configuration, and 2 web servers accessing a Gluster volume hosted on the 4-node cluster.
 
-### A quick overview of the steps 
+### A quick overview of the steps
 
   * Creating a Cloud Network
   * Creating two Cloud Block Storage volumes
@@ -80,7 +80,7 @@ A simple breakdown in case you're confused by this command would look like so
   * `--flavor 2` - this is the flavor for the 512MB instance, while I don't recommend running DRBD on this flavor, it's possible. You can learn more about the flavors with `nova flavor-list`
   * `--file /root/.ssh/authorized_keys=/home/niko5420/.ssh/id_rsa.pub` - this is the flag I use to inject my `id_rsa.pub` into the server's `/root/.ssh/authorized_keys` - allowing me public key authentication as soon as the server is built
   * `drbd${i}` - this is the display-name of my server. When I run a `nova list`, this name will show up there
-  * `sleep 30` - this is to completely avoid the unlikely scenario that the scheduler sticks both of my instances on the same hypervisor. 
+  * `sleep 30` - this is to completely avoid the unlikely scenario that the scheduler sticks both of my instances on the same hypervisor.
 
 ## Attach the block devices to your servers
 
@@ -123,7 +123,7 @@ Make sure you can communicate with the other instance on the "cloud network" - i
 
 Install the following packages on both servers
 
-    # apt-get install drbd8-utils linux-image-extra-virtual -y && reboot 
+    # apt-get install drbd8-utils linux-image-extra-virtual -y && reboot
 
 We reboot again because -extra-virtual gives us a new kernel - it's required to have drbd.ko unless you want to build from source
 
@@ -131,54 +131,54 @@ We reboot again because -extra-virtual gives us a new kernel - it's required to 
 
 On both servers, make a single 1GB partition on the CBS device - we do this because we're impatient and don't want to wait too long for the initial sync - you'll probably want a bigger replicated disk than 1GB, but for testing, this will do
 
-    # fdisk /dev/xvdb 
+    # fdisk /dev/xvdb
 
     Command (m for help): p
-    
-    Disk /dev/xvdb: 107.4 GB, 107374182400 bytes 
-    255 heads, 63 sectors/track, 13054 cylinders, total 209715200 sectors
-    Units = sectors of 1 * 512 = 512 bytes
-    Sector size (logical/physical): 512 bytes / 512 bytes
-    I/O size (minimum/optimal): 512 bytes / 512 bytes
-    Disk identifier: 0x000deb40
-    
-        Device Boot      Start         End      Blocks   Id  System
-    
-    Make a new partition: `Command (m for help): n` 
 
-    Partition type:
-       p   primary (0 primary, 0 extended, 4 free)
-       e   extended
-
-It is a primary partition: `Select (default p): p` 
-
-Select the defaults:
-
-    Partition number (1-4, default 1):
-    Using default value 1
-    First sector (2048-209715199, default 2048): 
-    Using default value 2048
-
-Make it 1GB: `Last sector, +sectors or +size{K,M,G} (2048-209715199, default 209715199): +1GB`
-
-You should have the following partition set up now:
-    
-    Command (m for help): p
-    
     Disk /dev/xvdb: 107.4 GB, 107374182400 bytes
     255 heads, 63 sectors/track, 13054 cylinders, total 209715200 sectors
     Units = sectors of 1 * 512 = 512 bytes
     Sector size (logical/physical): 512 bytes / 512 bytes
     I/O size (minimum/optimal): 512 bytes / 512 bytes
     Disk identifier: 0x000deb40
-    
+
+        Device Boot      Start         End      Blocks   Id  System
+
+    Make a new partition: `Command (m for help): n`
+
+    Partition type:
+       p   primary (0 primary, 0 extended, 4 free)
+       e   extended
+
+It is a primary partition: `Select (default p): p`
+
+Select the defaults:
+
+    Partition number (1-4, default 1):
+    Using default value 1
+    First sector (2048-209715199, default 2048):
+    Using default value 2048
+
+Make it 1GB: `Last sector, +sectors or +size{K,M,G} (2048-209715199, default 209715199): +1GB`
+
+You should have the following partition set up now:
+
+    Command (m for help): p
+
+    Disk /dev/xvdb: 107.4 GB, 107374182400 bytes
+    255 heads, 63 sectors/track, 13054 cylinders, total 209715200 sectors
+    Units = sectors of 1 * 512 = 512 bytes
+    Sector size (logical/physical): 512 bytes / 512 bytes
+    I/O size (minimum/optimal): 512 bytes / 512 bytes
+    Disk identifier: 0x000deb40
+
         Device Boot      Start         End      Blocks   Id  System
     /dev/xvdb1            2048   209715199   104856576   83  Linux
-    
+
 Write the config: `Command (m for help): w`
 
     The partition table has been altered!
-    
+
     Calling ioctl() to re-read partition table.
     Syncing disks.
 
@@ -193,7 +193,7 @@ Put whatever ip addresses you were given for your nodes in both of the server's 
 
 ### Edit DRBD configuration
 
-First off, **these configurations must be identical on each of your servers.** I recommend using a terminal multiplexer or writing them locally/uploading them to each server. 
+First off, **these configurations must be identical on each of your servers.** I recommend using a terminal multiplexer or writing them locally/uploading them to each server.
 
 Edit `/etc/drbd.d/global_common` - in the `syncer{}` section add `rate 30M;` to it.
 
@@ -225,7 +225,7 @@ Now let's create a resource called `r0`, give it some liberal settings in `net{}
             meta-disk internal;
         }
 }
-EOT 
+EOT
 ```
 
 DRBD is pretty self explanatory - see the manpage for drbd.conf if you are curious about the parameters I use.
@@ -249,9 +249,9 @@ If the drbd service is not already started, you may start it with
 
 Once DRBD is started, Look at the status from one of the servers
 
-    # cat /proc/drbd 
+    # cat /proc/drbd
     version: 8.3.11 (api:88/proto:86-96)
-    srcversion: 71955441799F513ACA6DA60 
+    srcversion: 71955441799F513ACA6DA60
      0: cs:SyncSource ro:Primary/Secondary ds:UpToDate/Inconsistent C r-----
         ns:20736 nr:0 dw:0 dr:21400 al:0 bm:1 lo:0 pe:0 ua:0 ap:0 ep:1 wo:f oos:104832604
     	[>....................] sync'ed:  0.1% (102372/102392)Mfinish: 22:24:00 speed: 1,296 (1,296) K/sec
@@ -323,13 +323,13 @@ Modify the drbd resource on both servers to look something like this
 
 your `/proc/drbd` should look like
 
-    # cat /proc/drbd 
+    # cat /proc/drbd
     version: 8.3.11 (api:88/proto:86-96)
-    srcversion: 71955441799F513ACA6DA60 
+    srcversion: 71955441799F513ACA6DA60
      0: cs:Connected ro:Primary/Primary ds:UpToDate/UpToDate C r-----
         ns:12 nr:0 dw:0 dr:676 al:0 bm:2 lo:0 pe:0 ua:0 ap:0 ep:1 wo:f oos:0
 
-### Configure cluster.conf and corosync.conf as such on both nodes 
+### Configure cluster.conf and corosync.conf as such on both nodes
 
 Edit `/etc/cluster/cluster.conf` to resemble the following
 
@@ -381,15 +381,15 @@ Edit `/etc/corosync/corosync.conf` to resemble the following
     }
     amf {
         mode: disabled
-    }   
+    }
     service {
         ver:       1
         name:      pacemaker
-    }   
+    }
     aisexec {
             user:   root
             group:  root
-    }       
+    }
     logging {
             fileline: off
             to_stderr: yes
@@ -453,9 +453,9 @@ This may take a while for crm to actuall do its thing; verify that your `crm sta
     2 Nodes configured, unknown expected votes
     6 Resources configured.
     ============
-    
+
     Online: [ drbd0 drbd1 ]
-    
+
      Clone Set: cdlm [rdlm_controld]
          Started: [ drbd0 drbd1 ]
      Clone Set: cgfsd [rgfs2_controld]
@@ -569,8 +569,8 @@ Create 4 servers - the Gluster servers - we'll use CentOS6.3 (found from `nova i
 ### Login to all servers, fix sshd so it doesn't take ages to login, and update/upgrade && reboot
 
 Do some initial configuration - the following commands should be run on all the servers you created above (I recommend using a terminal multiplexer like terminator, or cssh)
-    
-    # sed -i.orig 's/GSSAPIAuthentication yes/GSSAPIAuthentication no/g' /etc/ssh/sshd_config 
+
+    # sed -i.orig 's/GSSAPIAuthentication yes/GSSAPIAuthentication no/g' /etc/ssh/sshd_config
     # service sshd restart
     # cat << EOT >> /etc/hosts
     192.168.50.3 gluster-00-clients
@@ -613,13 +613,13 @@ It may take a minute or two for the devices to be added in CentOS - once they ar
     Building a new DOS disklabel with disk identifier 0xf83dadfd.
     Changes will remain in memory only, until you decide to write them.
     After that, of course, the previous content won't be recoverable.
-    
+
     Warning: invalid flag 0x0000 of partition table 4 will be corrected by w(rite)
-    
+
     WARNING: DOS-compatible mode is deprecated. It's strongly recommended to
              switch off the mode (command 'c') and change display units to
              sectors (command 'u').
-    
+
 Create a new partition: `Command (m for help): n`
 
     Command action
@@ -637,21 +637,21 @@ Default first cylinder: `First cylinder (1-13054, default 1):`
 Default last cylinder: `Last cylinder, +cylinders or +size{K,M,G} (1-13054, default 13054):`
 
     Using default value 13054
-    
+
 Drop into expert mode: `Command (m for help): x`
-    
+
 Set the beginning of the disk: `Expert command (m for help): b`
 
 Select partition 1: `Partition number (1-4): 1`
 
 Align to 2048: `New beginning of data (1-209712509, default 63): 2048`
-    
+
 Return to regular mode: `Expert command (m for help): r`
-    
+
 Write the configuration: `Command (m for help): w`
 
     The partition table has been altered!
-    
+
     Calling ioctl() to re-read partition table.
     Syncing disks.
 
@@ -671,7 +671,7 @@ Since we're using CBS, we want to take advantage of the fact that we can willy-n
 
 Now we're ready to start gluster - run the following commands on all of the Gluster servers you created.
 
-    # service glusterd start 
+    # service glusterd start
     # chkconfig glusterd on
 
 In /etc/sysconfig/iptables, add some lines in to allow glusterd communication. For this example I am simply allowing all traffic to flow on eth2 and eth3 while leaving eth1 and eth0 filtered. In the real world, you should really fix this so that gluster can communicate without giving free range to anyone on those interfaces.
@@ -706,15 +706,15 @@ Now that `glusterd` is staretd, run the following commands from only one of the 
     Probe successful
     [root@gluster-00 etc]# gluster peer status
     Number of Peers: 3
-    
+
     Hostname: gluster-01-servers
     Uuid: 1c8d258b-22de-4a5b-bb6a-8b458e5a7115
     State: Peer in Cluster (Connected)
-    
+
     Hostname: gluster-02-servers
     Uuid: ee151a51-6aa8-4e3b-ba80-6131b05e40ca
     State: Peer in Cluster (Connected)
-    
+
     Hostname: gluster-03-servers
     Uuid: 050d0e4f-961e-44d1-9db9-1597723aaa45
     State: Peer in Cluster (Connected)
@@ -739,7 +739,7 @@ Now we're ready to create and start a volume. Below is the standard way to creat
 You can verify that things are groovy by running `gluster volume info all` from another one of the nodes
 
     [root@gluster-03 etc]# gluster volume info all
-    
+
     Volume Name: webData
     Type: Distributed-Replicate
     Status: Started
@@ -768,10 +768,10 @@ Once they're booted, do the same steps as above to get them updated and using pr
 
     # sed -i.orig 's/GSSAPIAuthentication yes/GSSAPIAuthentication no/g' /etc/ssh/sshd_config
     # service sshd restart
-    # yum update -y && reboot 
+    # yum update -y && reboot
     # rpm -Uvh http://mirror.nexcess.net/epel/6/i386/epel-release-6-8.noarch.rpm
-    # yum update 
-    # yum install -y glusterfs-fuse nginx 
+    # yum update
+    # yum install -y glusterfs-fuse nginx
     # cat << EOT >> /etc/hosts
     192.168.50.3 gluster-00-servers
     192.168.50.2 gluster-01-servers
@@ -779,9 +779,9 @@ Once they're booted, do the same steps as above to get them updated and using pr
     192.168.50.5 gluster-03-servers
     EOT
     # mkdir /webData
-    # echo "gluster-00-servers:/webData	/webData glusterfs defaults,_netdev 0 0" >> /etc/fstab 
+    # echo "gluster-00-servers:/webData	/webData glusterfs defaults,_netdev 0 0" >> /etc/fstab
     # mount /webData
-    # sed -i.orig 's#/usr/share/nginx/html#/webData#g' /etc/nginx/conf.d/default.conf 
+    # sed -i.orig 's#/usr/share/nginx/html#/webData#g' /etc/nginx/conf.d/default.conf
     # service nginx restart
     # cp /usr/share/nginx/html/* /webData/
 
@@ -801,7 +801,7 @@ Then from another server at rackspace (in DFW instead of ORD) I ran siege agains
     The server is now under siege...
 
 I got the following results the first time
-    
+
     Lifting the server siege...      done.
     Transactions:                 89 hits
     Availability:             100.00 %
