@@ -3,7 +3,7 @@ layout: post
 title: "Move fast and don’t break things! Testing with Jenkins, Ansible and Docker"
 date: 2014-05-22 09:20
 comments: true
-author: YOUR_NAME_HERE
+author: Mike Muzurakis
 published: true
 categories:
   - Docker
