@@ -4,8 +4,8 @@ title: "Bootstrap your QCOW Images for the Rackspace Public Cloud"
 date: 2014-05-23 10:30
 comments: true
 author: Mike Metral
-published: false
-categories: 
+published: true
+categories:
 - Cloud Images
 - Custom Images
 - Public Cloud
@@ -19,7 +19,7 @@ various shapes & sizes and are by no means made equal.
 In the [Rackspace Public Cloud](http://rackspace.com/cloud/servers), we utilize Citrix XenServer as our
 hypervisor, which requires that our disk images be in the
 [VHD](http://en.wikipedia.org/wiki/VHD_\(file_format\)) format.
-
+<!-- more -->
 However, it is very common for folks who utilize the popular
 [KVM](http://en.wikipedia.org/wiki/Kernel-based_Virtual_Machine) hypervisor to
 want to leverage an existing, custom [QCOW](http://en.wikipedia.org/wiki/Qcow)
@@ -32,7 +32,7 @@ create that they wish to share across multiple cloud infrastructures.
 
 In this tutorial, I will walk you through the following steps:
 
-* Pull a vanilla 
+* Pull a vanilla
 [UEC](http://en.wikipedia.org/wiki/Ubuntu_Enterprise_Cloud#Cloud_computing)
 version of an [Ubuntu 14.04](http://cloud-images.ubuntu.com/trusty/current/) QCOW image
 * Modify the OS to work with the Rackspace Public Cloud
