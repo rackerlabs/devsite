@@ -89,17 +89,17 @@ RUN git pull
 
 RUN cp settings.py.dist settings.py
 
-RUN echo JS\_BUILD = True >> settings.py
+RUN echo JS_BUILD = True >> settings.py
 
-RUN echo CSS\_BUILD = True >> settings.py
+RUN echo CSS_BUILD = True >> settings.py
 
-RUN echo SSL\_VERIFY = True >> settings.py
+RUN echo SSL_VERIFY = True >> settings.py
 
 RUN virtualenv . && ./bin/pip install --upgrade setuptools
 
 RUN ./bin/python bootstrap.py && ./bin/buildout -N
 
-ADD ./test\_config.py src/mist/io/tests/features/
+ADD ./test_config.py src/mist/io/tests/features/
 
 ADD ./init.sh /
 
@@ -119,7 +119,7 @@ cd MIST/mist.io
 
 git checkout $BRANCH
 
-./bin/run\_test
+./bin/run_test
 ```
 
 **ENTRYPOINT** This tells docker to start with ./init.sh script every time we run the image.
@@ -130,7 +130,7 @@ To build the docker image for future reuse:
 
 Now we have a test environment. If there are more tests in other branches that need to be spawned we can use it for every one of them:
 
-`docker run -e BRANCH=your\_branch mist/iotest`
+`docker run -e BRANCH=your_branch mist/iotest`
 
 If we had multiple test servers, we would have to build every custom image in every test server. Fortunately, docker lets you have your own [private repository](http://docs.docker.io/en/latest/use/workingwithrepository/) of docker images. You can build your custom image once, say mist/iotest, push it to the repository and run:
 
@@ -146,24 +146,24 @@ Ansible to the rescue
 
 [Ansible](http://www.ansible.com/home) automates deployment. It is written in Python and installation is [relatively simple](http://docs.ansible.com/intro_installation.html). It is available through most linux distro repositories, you can clone it from github or install it via pip.
 
-Configuring ansible is also [easy](http://docs.ansible.com/intro_configuration.html). All you have to do is group your servers in an ansible\_hosts file and use ansible's playbooks and roles to [configure](http://docs.ansible.com/playbooks.html) them.
+Configuring ansible is also [easy](http://docs.ansible.com/intro_configuration.html). All you have to do is group your servers in an ansible_hosts file and use ansible's playbooks and roles to [configure](http://docs.ansible.com/playbooks.html) them.
 
-For example, this is a simple ansible\_hosts file:
+For example, this is a simple ansible_hosts file:
 
 ```
 [testservers]
 
-testserver1 ansible\_ssh\_host=178.127.33.109
+testserver1 ansible_ssh_host=178.127.33.109
 
-testserver2 ansible\_ssh\_host=178.253.121.93
+testserver2 ansible_ssh_host=178.253.121.93
 
-testserver3 ansible\_ssh\_host=114.252.27.128
+testserver3 ansible_ssh_host=114.252.27.128
 
 [testservers:vars]
 
-ansible\_ssh\_user=mister
+ansible_ssh_user=mister
 
-ansible\_ssh\_private\_key\_file=~/.ssh/testkey
+ansible_ssh_private_key_file=~/.ssh/testkey
 ```
 
 We just told Ansible that we have three test servers, grouped as testservers. For each one the user is mister and the ssh key is testkey, as defined in the [testservers:vars] section.
@@ -172,88 +172,57 @@ Each test server should have docker installed and a specified docker image built
 
 ```
 - name: Install new kernel
-
- sudo: True
-
- apt:
-
-  pkg: "{{ item }}"
-
-  state: latest
-
-  update-cache: yes
-
- with\_items:
-
-  - linux-image-generic-lts-raring
-
-  - linux-headers-generic-lts-raring
-
- register: kernel\_result
+  sudo: True
+  apt:
+    pkg: "{{ item }}"
+    state: latest
+    update-cache: yes
+  with_items:
+    - linux-image-generic-lts-raring
+    - linux-headers-generic-lts-raring
+  register: kernel_result
 
 - name: Reboot instance if kernel has changed
-
- sudo: True
-
- command: reboot
-
- register: reboot\_result
-
- when: "kernel\_result|changed"
+  sudo: True
+  command: reboot
+  register: reboot_result
+  when: "kernel_result|changed"
 
 - name: Wait for instance to come online
-
- sudo: False
-
- local\_action: wait\_for host={{ ansible\_ssh\_host }} port=22 state=started
-
- when: "reboot\_result|success"
+  sudo: False
+  local_action: wait_for host={{ ansible_ssh_host }} port=22 state=started
+  when: "reboot_result|success"
 
 - name: Add Docker repository key
-
- sudo: True
-
- apt\_key: url="https://get.docker.io/gpg"
+  sudo: True
+  apt_key: url="https://get.docker.io/gpg"
 
 - name: Add Docker repository
-
- sudo: True
-
- apt\_repository:
-
-  repo: 'deb http://get.docker.io/ubuntu docker main'
-
-  update\_cache: yes
+  sudo: True
+  apt_repository:
+    repo: 'deb http://get.docker.io/ubuntu docker main'
+    update_cache: yes
 
 - name: Install Docker
-
- sudo: True
-
- apt: pkg=lxc-docker state=present
-
- notify: "Start Docker"
+  sudo: True
+  apt: pkg=lxc-docker state=present
+  notify: "Start Docker"
 
 - name: Make dir for io docker files
-
- command: mkdir -p docker/iotest
+  command: mkdir -p docker/iotest
 
 - name: Copy io Dockerfiles
-
- template:
-
-  src=templates/iotest/Dockerfile.j2 dest=docker/iotest/Dockerfile
+  template:
+    src=templates/iotest/Dockerfile.j2 dest=docker/iotest/Dockerfile
 
 - name: Copy io init scripts
-
- copy:
-
-  src=templates/iotest/init.sh dest=docker/iotest/init.sh
+  copy:
+    src=templates/iotest/init.sh dest=docker/iotest/init.sh
 
 - name: Build docker images for io
+  sudo: True
+  command: docker build -t mist/iotest docker/iotest
 
- sudo: True
-
- command: docker build -t mist/iotest docker/iotest
 ```
 
 However, building the docker application on each one of our servers is time consuming, especially if we want to have a lot of test servers. Fortunately we can build our own docker registry, build the docker application once and then push it. On each test server, instead of building the docker image we can then just pull it from the registry:
@@ -264,128 +233,87 @@ We can automate this through ansible by updating our Ansible hosts file:
 ```
 [docker-grid]
 
-docker-registry ansible\_ssh\_host=178.127.33.119
+docker-registry ansible_ssh_host=178.127.33.119
 
-docker-node1 ansible\_ssh\_host=178.253.121.93
+docker-node1 ansible_ssh_host=178.253.121.93
 
-docker-node2 ansible\_ssh\_host=114.252.27.128
+docker-node2 ansible_ssh_host=114.252.27.128
 
 [docker-grid:vars]
 
-ansible\_ssh\_user=mister
+ansible_ssh_user=mister
 
-ansible\_ssh\_private\_key\_file=~/.ssh/testkey
-
+ansible_ssh_private_key_file=~/.ssh/testkey
+```
 Next, we'll add the following ansible tasks:
-
+```
 - name: Install dependencies for docker registry
-
- sudo: True
-
- apt:
-
-pkg: "{{ item }}"
-
-state: latest
-
-update-cache: yes
-
- with\_items:
-
-- git
-
-- python-dev
-
-- liblzma-dev
-
-- python-gevent
-
-- libevent1-dev
-
-- build-essential
-
- register: kernel\_result
-
- when: "inventory\_hostname == 'docker-registry'"
+  sudo: True
+  apt:
+	pkg: "{{ item }}"
+	state: latest
+	update-cache: yes
+  with_items:
+	- git
+	- python-dev
+	- liblzma-dev
+	- python-gevent
+	- libevent1-dev
+	- build-essential
+  register: kernel_result
+  when: "inventory_hostname == 'docker-registry'"
 
 - name: Intall docker-registry
-
- git:
-
-repo: https://github.com/dotcloud/docker-registry
-
-dest: docker-registry
-
-accept\_hostkey: True
-
- when: "inventory\_hostname == 'docker-registry'"
+  git:
+	repo: https://github.com/dotcloud/docker-registry
+	dest: docker-registry
+	accept_hostkey: True
+  when: "inventory_hostname == 'docker-registry'"
 
 - name: Copy config.yml for docker registry
-
- shell: chdir=docker-registry/config cp config\_sample.yml config.yml
-
- when: "inventory\_hostname == 'docker-registry'"
+  shell: chdir=docker-registry/config cp config_sample.yml config.yml
+  when: "inventory_hostname == 'docker-registry'"
 
 - name: Install pip requirements for docker-registry
-
- sudo: True
-
- pip:
-
-requirements: /home/mist/docker-registry/requirements.txt
-
- when: "inventory\_hostname == 'docker-registry'"
+  sudo: True
+  pip:
+	requirements: /home/mist/docker-registry/requirements.txt
+  when: "inventory_hostname == 'docker-registry'"
 
 - name: Copy docker-registry init script
-
- sudo: True
-
- template:
-
-src: docker-registry.conf.j2
-
-dest: /etc/init/docker-registry.conf
-
- when: "inventory\_hostname == 'docker-registry'"
+  sudo: True
+  template:
+	src: docker-registry.conf.j2
+	dest: /etc/init/docker-registry.conf
+  when: "inventory_hostname == 'docker-registry'"
 
 - name: Start docker-registry service
-
- sudo: True
-
- service:
-
-name: docker-registry
-
-state: started
-
- when: "inventory\_hostname == 'docker-registry'"
+  sudo: True
+  service:
+	name: docker-registry
+	state: started
+  when: "inventory_hostname == 'docker-registry'"
+```
 
 The docker-registry.conf is an upstart script (it could be an init script as well) that looks like this:
-
+```
 description "Docker Registry start"
 
 start on runlebel [3]
-
 stop on shutdown
 
 expect fork
 
 script
+    	cd /home/mist/docker-registry
+    	GUNICORN_WORKERS=${GUNICORN_WORKERS:-4}
+    	REGISTRY_PORT=${REGISTRY_PORT:-5000}
+    	GUNICORN_GRACEFUL_TIMEOUT=${GUNICORN_GRACEFUL_TIMEOUT:-3600}
+    	GUNICORN_SILENT_TIMEOUT=${GUNICORN_SILENT_TIMEOUT:-3600}
 
-  cd /home/mist/docker-registry
+    	gunicorn --access-logfile - --debug --max-requests 100 --graceful-timeout $GUNICORN_GRACEFUL_TIMEOUT -t $GUNICORN_SILENT_TIMEOUT -k gevent -b 0.0.0.0:$REGISTRY_PORT -w $GUNICORN_WORKERS wsgi:application &
 
-  GUNICORN\_WORKERS=${GUNICORN\_WORKERS:-4}
-
-  REGISTRY\_PORT=${REGISTRY\_PORT:-5000}
-
-  GUNICORN\_GRACEFUL\_TIMEOUT=${GUNICORN\_GRACEFUL\_TIMEOUT:-3600}
-
-  GUNICORN\_SILENT\_TIMEOUT=${GUNICORN\_SILENT\_TIMEOUT:-3600}
-
-  gunicorn --access-logfile - --debug --max-requests 100 --graceful-timeout $GUNICORN\_GRACEFUL\_TIMEOUT -t $GUNICORN\_SILENT\_TIMEOUT -k gevent -b 0.0.0.0:$REGISTRY\_PORT -w $GUNICORN\_WORKERS wsgi:application &
-
-  emit docker-registry\_running
-
+    	emit docker-registry_running
 end script
 ```
 
@@ -403,40 +331,25 @@ To automate things we will add these tasks to our ansible playbook:
 
 ```
 - name: Build mist images
-
- sudo: True
-
- shell: chdir="/home/mist/dockers/{{ item }}" docker build -t localhost:5000/{{ item }} .
-
- with\_items:
-
-- mist.io
-
- when: "inventory\_hostname == 'docker-registry'"
+  sudo: True
+  shell: chdir="/home/mist/dockers/{{ item }}" docker build -t localhost:5000/{{ item }} .
+  with_items:
+	- mist.io
+  when: "inventory_hostname == 'docker-registry'"
 
 - name: Push images to docker registry
-
- sudo: True
-
- shell: "docker push localhost:5000/{{ item }}"
-
- with\_items:
-
-- mist.io
-
- when: "inventory\_hostname == 'docker-registry'"
+  sudo: True
+  shell: "docker push localhost:5000/{{ item }}"
+  with_items:
+	- mist.io
+  when: "inventory_hostname == 'docker-registry'"
 
 - name: Pull images on the docker nodes
-
- sudo: True
-
- shell: "docker pull {{ hostvars['docker-registry']['ansible\_default\_ipv4']['address'] }}:5000/{{ item }}"
-
- with\_items:
-
-- mist.io
-
- when: "inventory\_hostname != 'docker-registry'"
+  sudo: True
+  shell: "docker pull {{ hostvars['docker-registry']['ansible_default_ipv4']['address'] }}:5000/{{ item }}"
+  with_items:
+	- mist.io
+  when: "inventory_hostname != 'docker-registry'"
 ```
 
 After that, we just have to set ansible to trigger the tests and spawn these docker applications. All Jenkins has to do is catch the webhook of a new pull request and issue one command:
