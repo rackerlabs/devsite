@@ -14,6 +14,7 @@
 # <a href="http://site.com/images/ninja.png"><img class="left half" src="http://site.com/images/ninja.png" title="Ninja Attack!" alt="Ninja Attack!"></a>
 # <a href="http://site.com/images/ninja.png"><img class="left half" src="http://site.com/images/ninja.png" width="150" height="150" title="Ninja Attack!" alt="Ninja in attack posture"></a>
 #
+require './plugins/image_tag'
 
 module Jekyll
 
