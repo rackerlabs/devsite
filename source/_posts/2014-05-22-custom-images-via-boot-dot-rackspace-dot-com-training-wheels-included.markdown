@@ -5,7 +5,7 @@ date: 2014-05-22 12:42
 comments: true
 author: Mike Metral
 published: false
-categories: 
+categories:
 - Cloud Images
 - Custom Images
 - Public Cloud
@@ -13,7 +13,7 @@ categories:
 - OpenStack
 ---
 
-With the recent announcement of 
+With the recent announcement of
 [Cloud Images](http://www.rackspace.com/cloud/images/), creating custom images
 for the [Rackspace Public Cloud](http://www.rackspace.com/cloud/servers)
 is now a functionality users have at their disposal.
@@ -74,7 +74,7 @@ __6. Proceed through the install & setup accordingly__
 
 * In addendum to custom modifications, make sure to do the following:
     * During partioning:
-        * Select 'Guided - use entire disk' 
+        * Select 'Guided - use entire disk'
         * Use the 'Virtual disk 1 (xvda) - 42.9 GB`
     * Select OpenSSH server during the software install process
     * Install the GRUB boot loader to the master boot record
@@ -175,7 +175,7 @@ Agent:
     * set xenapi_use_agent=false
 
 ```
-nova image-meta my_ubuntu_1204 set vm_mode=xen 
+nova image-meta my_ubuntu_1204 set vm_mode=xen
 nova image-meta my_ubuntu_1204 set xenapi_use_agent=true
 ```
 
