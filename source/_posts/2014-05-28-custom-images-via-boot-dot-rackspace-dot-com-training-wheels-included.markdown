@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Custom Images via boot.rackspace.com - Training Wheels Included"
-date: 2014-05-22 12:42
+date: 2014-05-28 12:42
 comments: true
 author: Mike Metral
 published: false
@@ -25,7 +25,7 @@ tools very easily. It's especially useful for remote access environments when
 you don't want to utilize remote attached CD's in a Dell DRAC, HP iLO or some other
 type of remote tool. It's especially awesome for bootstrapping your own custom
 installation on a Cloud Server!
-
+<!-- more -->
 In this post, I will walk you through each of the steps required to get you up &
 running a custom version of __Ubuntu 12.04__ via boot.rackspace.com.
 
