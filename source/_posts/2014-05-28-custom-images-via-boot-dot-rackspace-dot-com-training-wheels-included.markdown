@@ -4,7 +4,7 @@ title: "Custom Images via boot.rackspace.com - Training Wheels Included"
 date: 2014-05-28 12:42
 comments: true
 author: Mike Metral
-published: false
+published: true
 categories:
 - Cloud Images
 - Custom Images
