@@ -125,7 +125,7 @@ The next step will be to create the templatefile used for Apache VHosts
 	
 	<VirtualHost {{ vals.interface }}:{{ vals.port }}>
 	    ServerName {{ vals.ServerName }}
-	    ServerAlias {% for ServerAlias in site.get('ServerAlias', {}).items() %} {{ServerAlias}} www.{{ServerAlias}}{% endfor %}
+	    ServerAlias {% for ServerAlias in site.get('ServerAlias', []) %} {{ServerAlias}} www.{{ServerAlias}}{% endfor %}
 	    ServerAdmin {{ vals.ServerAdmin }}
 	    LogLevel {{ vals.LogLevel }}
 	    ErrorLog {{ vals.ErrorLog }}
