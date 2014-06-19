@@ -11,7 +11,7 @@ categories:
     - ironic
 ---
 
-As you may already know, Rackspace just launched OnMetal (http://www.rackspace.com/onmetal), which is built with OpenStack [Ironic](https://github.com/openstack/ironic) and [ironic-python-agent (IPA)](https://github.com/openstack/ironic-python-agent). I want to highlight the code, what our control plane looks like, and how we operate it. My hope is that this post can help others test and deploy Ironic with IPA.
+As you may already know, Rackspace just launched [OnMetal](http://www.rackspace.com/cloud/servers/onmetal/), which is built with OpenStack [Ironic](https://github.com/openstack/ironic) and [ironic-python-agent (IPA)](https://github.com/openstack/ironic-python-agent). I want to highlight the code, what our control plane looks like, and how we operate it. My hope is that this post can help others test and deploy Ironic with IPA.
 
 <!-- more -->
 
