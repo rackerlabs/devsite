@@ -220,8 +220,12 @@ end
 ```
 
 You can bootstrap your provisioning node with knife with this recipe, and it will
-create two nodes on the Rackspace Cloud! [Chef Metal is still under heavy
-development and you can follow along on [GitHub][5].
+create two nodes on the Rackspace Cloud!
+
+`knife bootstrap -x root -E 'development' -r "recipe[cookbook::metal.rb" 12.34.56.78`
+
+[Chef Metal is still under heavy development and you can follow along on
+[GitHub][5]. Happy Cheffing!
 
 [1]: http://www.getchef.com/blog/2014/03/04/chef-metal-0-2-release/
 [2]: http://docs.opscode.com/chef/essentials_data_bags.html#encrypt-a-data-bag-item
