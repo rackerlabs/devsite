@@ -224,7 +224,7 @@ create two nodes on the Rackspace Cloud!
 
 `knife bootstrap -x root -E 'development' -r "recipe[cookbook::metal.rb" 12.34.56.78`
 
-[Chef Metal is still under heavy development and you can follow along on
+Chef Metal is still under heavy development and you can follow along on
 [GitHub][5]. Happy Cheffing!
 
 [1]: http://www.getchef.com/blog/2014/03/04/chef-metal-0-2-release/
