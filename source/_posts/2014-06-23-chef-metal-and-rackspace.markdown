@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Chef Metal and Rackspace"
-date: 2014-06-23 16:13
+date: 2014-06-26 08:00
 comments: true
 author: Hart Hoover
 published: false
@@ -15,15 +15,15 @@ Chef recipes. With Chef Metal's `machine` resource, you can keep your entire
 server environment under the same version control that holds your configuration
 management recipes.
 
-Chef Metal works by using a provisioning node to control your infrastrucure. The
+Chef Metal works by using a provisioning node to control your infrastructure. The
 provisioning node keeps track of the machines you've defined and will create a
 new one if needed.
 
-For Chef Metal to work, you're going to need a Chef Server (or be using Chef's
-Platform). You will also need to have an existing node that will act as your
-provisioner registered as a client with your Chef Server. The provisioner will
-also require admin privliges. You can set this with the `knife acl` plugin or edit
-permissions with knife:
+For Chef Metal to work with a Chef Server (or while using Chef's Platform) you
+will need to have an existing node that will act as your provisioner. This node
+will already need to be registered as a client with your Chef Server. The
+provisioner will also require admin privileges. You can set this with the
+`knife acl` plugin or edit permissions with knife:
 
 `knife edit groups/admins.json`
 
@@ -75,8 +75,8 @@ fog_key_pair my-key
 with_machine_options ssh_username: 'root',
                      bootstrap_options: {
                        key_name: my-key,
-                       flavor_id: 'performance1-2', # 2GB Performance Cloud
-                       image_id: 'ffa476b1-9b14-46bd-99a8-862d1d94eb7a' # Ubuntu 12.04
+                       flavor_id: 'performance1-2',
+                       image_id: 'ffa476b1-9b14-46bd-99a8-862d1d94eb7a'
                      }
 
 with_chef_server Chef::Config[:chef_server_url],
@@ -152,7 +152,8 @@ driver system to talk to clouds, bare metal, or virtualized infrastructure. For
 this example, we're using the [chef-metal-fog][3] driver which uses the [fog][4]
 library to talk to the Rackspace API. In this code block we're telling Chef Metal
 which driver to use, as well as providing the credentials we read from our data
-bag. We're also providing the region in which we wish to build.
+bag. We're also providing the region in which we wish to build. This section can
+also be placed in your knife.rb if you want to keep it out of your recipe.
 
 ```ruby
 with_driver 'fog:Rackspace:https://identity.api.rackspacecloud.com/v2.0',
@@ -192,8 +193,7 @@ with_chef_server Chef::Config[:chef_server_url],
 
 Finally, I have two machines defined. I have the web node set to
 `action 'nothing'`, with a `notifies` statement that converges the web node upon
-completion of the database node. Without this in place, Chef Metal will build 
-nodes in parallel.
+completion of the database node.
 
 ```ruby
 # Database node first, then web node through notifies statement
@@ -219,16 +219,53 @@ machine 'web' do
 end
 ```
 
+Another way to build machines in a specific order is to set `auto_batch_machines =
+false` in your recipe. Otherwise Chef Metal will build all of your machines in
+parallel. Using Chef Metal's "batch mode" you can build many of the same machines
+at once:
+
+```ruby
+machine_batch do
+  %w(primary secondary web1 web2)
+  action 'setup' # does everything except converge
+end
+
+machine_batch do
+ machine 'primary' do
+   recipe 'initial_ha_setup'
+   action 'converge'
+ end
+end
+
+machine_batch do
+ machine 'secondary' do
+   recipe 'initial_ha_setup'
+   action 'converge'
+ end
+end
+```
+
 You can bootstrap your provisioning node with knife with this recipe, and it will
 create two nodes on the Rackspace Cloud!
 
 `knife bootstrap -x root -E 'development' -r "recipe[cookbook::metal.rb" 12.34.56.78`
 
-Chef Metal is still under heavy development and you can follow along on
-[GitHub][5]. Happy Cheffing!
+You can also build nodes with Chef Metal without a provsioner using the
+`chef-client` in [local mode][5]. Just set the 'with_chef_server' section in your
+recipe appropriately. Chef Metal is still under heavy development and you can
+follow along on [GitHub][6]. Couple Chef Metal provisioning with a mixture of
+Cloud Servers and [OnMetal Compute][7] and you'll be one happy Chef.
+
+### About the Author
+
+Hart Hoover is an Engineer with the [DevOps Automation Service][8] team at
+Rackspace. You can follow him on twitter [@hhoover](http://twitter.com/hhoover).
 
 [1]: http://www.getchef.com/blog/2014/03/04/chef-metal-0-2-release/
 [2]: http://docs.opscode.com/chef/essentials_data_bags.html#encrypt-a-data-bag-item
 [3]: https://github.com/opscode/chef-metal-fog
 [4]: http://fog.io
-[5]: https://github.com/opscode/chef-metal
+[5]: http://www.getchef.com/blog/2014/06/24/from-solo-to-zero-migrating-to-chef-client-local-mode/
+[6]: https://github.com/opscode/chef-metal
+[7]: http://www.rackspace.com/cloud/servers/onmetal/
+[8]: http://www.rackspace.com/devops/
