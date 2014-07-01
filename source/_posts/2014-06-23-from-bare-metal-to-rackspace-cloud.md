@@ -23,8 +23,7 @@ These tools are great to give you a very quick and easy way to setup a demo Rack
 
 <!-- more -->
 
-In the following post, the first of many in the [RPC Insights series](http://www.rackspace.com/blog/welcome-to-rpc-insights/), I am going to detail how to deploy a proof of concept Rackspace Private Cloud environment powered by OpenStack Havana on top of Ubuntu Server 12.04.4 LTS on bare metal servers.
-
+In the following post, the first of several in the [RPC Insights series](http://www.rackspace.com/blog/welcome-to-rpc-insights/), I am going to detail how to deploy a proof of concept Rackspace Private Cloud environment powered by OpenStack Havana on top of Ubuntu Server 12.04.4 LTS on bare metal servers.
 
 The Necessary Gear
 ------------------
@@ -572,4 +571,6 @@ What's Next
 
 At this point, Rackspace Private Cloud powered by OpenStack Havana should be running on your bare metal servers. You have uploaded several Glance images and created two Neutron Provider Networks to attach OpenStack Instances to.
 
-This concludes the first of many posts in the RPC Insights series. Join us on June 24 for a webinar on [Spinning Up Your First Instance on RPC](https://cc.readytalk.com/cc/s/registrations/new?cid=ebv9dzujw4cg).
+This concludes the first of several posts in the [RPC Insights series](http://www.rackspace.com/blog/welcome-to-rpc-insights/).
+
+Join us on June 24, 2014 at 10:00 AM CST for a live webinar on [Spinning Up Your First Instance on RPC](https://cc.readytalk.com/cc/s/registrations/new?cid=ebv9dzujw4cg).
