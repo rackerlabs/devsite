@@ -15,7 +15,7 @@ In the following post, the second of several in the [RPC Insights series](http:/
 
 <!-- more -->
 
-In the webinar, I was working from a virtual Rackspace Private Cloud environment running on my workstation. That environment was created using [these all-in-one Vagrantfiles](http://thornelabs.net/2013/12/17/deploy-rackspace-private-cloud-entirely-within-a-vagrantfile-on-virtualbox-or-vmware-fusion.html). The entirely of this post will assume you are using those all-in-one Vagrantfiles as well. It is worth mentioning that most of the commands below will work just as well on other OpenStack environments. The main difference between other evironments will be the networking layout and configuration.
+In the webinar, I was working from a virtual Rackspace Private Cloud environment running on my workstation. That environment was created using these [multi-node Vagrantfiles](http://thornelabs.net/2013/12/17/deploy-rackspace-private-cloud-entirely-within-a-vagrantfile-on-virtualbox-or-vmware-fusion.html). The entirely of this post will assume you are using those multi-node Vagrantfiles as well. It is worth mentioning that most of the commands below will work just as well on other OpenStack environments. The main difference between other evironments will be the networking layout and configuration.
 
 Log into the OpenStack Controller Node
 --------------------------------------
@@ -239,4 +239,4 @@ Being able to do all of these things using the Horizon Dashboard or the OpenStac
 
 This concludes the second of several posts in the [RPC Insights series](http://www.rackspace.com/blog/welcome-to-rpc-insights/).
 
-Join us on July 16, 2014 at 10:00 AM CST for a live webinar on Using Rackspace Private Cloud to Host Your Web Tier Applications (link to register for the webinar is forthcoming).
+Join us on July 16, 2014 at 10:00 AM CDT for a live webinar on [Using Rackspace Private Cloud to Host Your Web Tier Applications](http://go.rackspace.com/rpc-to-host-your-web-tier-applications.html).

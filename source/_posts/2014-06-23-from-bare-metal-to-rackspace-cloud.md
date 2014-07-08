@@ -16,7 +16,7 @@ There are all sorts of tools available to setup virtual OpenStack environments o
 In Rackspace Private Cloud's case, the following three options are available:
 
 * [The Official Rackspace Private Cloud Sandbox](http://www.rackspace.com/knowledge_center/article/rackspace-private-cloud-sandbox)
-* [All-in-one Vagrantfiles](http://thornelabs.net/2013/12/17/deploy-rackspace-private-cloud-entirely-within-a-vagrantfile-on-virtualbox-or-vmware-fusion.html)
+* [Multi-node Vagrantfiles](http://thornelabs.net/2013/12/17/deploy-rackspace-private-cloud-entirely-within-a-vagrantfile-on-virtualbox-or-vmware-fusion.html)
 * [All-in-one shell script](https://github.com/cloudnull/rcbops_allinone_inone)
 
 These tools are great to give you a very quick and easy way to setup a demo Rackspace Private Cloud environment to begin learning how the services, APIs, CLI tools, and Horizon Dashboard work. However, these demo environments do not give you a realistic expectation of what you can expect Rackspace Private Cloud to do for you on bare metal servers or how to actually set it all up.
@@ -573,4 +573,4 @@ At this point, Rackspace Private Cloud powered by OpenStack Havana should be run
 
 This concludes the first of several posts in the [RPC Insights series](http://www.rackspace.com/blog/welcome-to-rpc-insights/).
 
-Join us on June 24, 2014 at 10:00 AM CST for a live webinar on [Spinning Up Your First Instance on RPC](https://cc.readytalk.com/cc/s/registrations/new?cid=ebv9dzujw4cg).
+Join us on June 24, 2014 at 10:00 AM CDT for a live webinar on [Spinning Up Your First Instance on RPC](https://cc.readytalk.com/cc/s/registrations/new?cid=ebv9dzujw4cg).
