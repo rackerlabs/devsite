@@ -1,0 +1,118 @@
+---
+layout: post
+title: "I Have A Cloud...Now What? - Part 1: Building a 3-tier Webapp"
+date: 2014-07-08 12:26
+comments: true
+author: Mike Metral
+published: false
+categories: 
+- Public Cloud
+- Cloud Servers
+- OpenStack
+- Architecture
+---
+
+When we meet with customers, a constant set of questions we get asked goes something
+like this: "OK, now that I have access to a cloud, what do I do with it? How can
+I make sure I take full advantage of my cloud? How do I
+properly architect my webapps to leverage the resources cloud makes available to me?"
+
+All of these questions are great and merit a worthy answer. However, the truth
+is that talking about it can only get you so far - insert [Project Touchstone](https://github.com/metral/touchstone):
+a collection of mini projects meant to extensively showcase how one should architect, 
+consume, organize and orchestrate real-world web stacks on the infrastructures provided by the Rackspace Public & Private cloud.
+<!-- more -->
+
+## Architecture
+Lets begin by seeing how we would architect your typical [3-tier webapp](http://en.wikipedia.org/wiki/Multitier_architecture#Web_development_usage). To set
+the scene, we will be reviewing how to build the [Encoder project](https://github.com/metral/touchstone/tree/master/encoder), a webapp that that allows a
+user to submit a video file and convert it to the AVI, MKV, OGG and WEBM formats.
+
+As a frame of reference, here is the proposed architecture for the Encoder
+webapp:
+
+{% img https://raw.githubusercontent.com/metral/touchstone/master/encoder/extras/encoder.jpg %}
+
+## Enabling Orchestration
+We are following the 3-tier model by organizing & orchestrating the provisioning of
+cloud infrastructure through [Rackspace's Cloud Orchestration](http://www.rackspace.com/blog/cloud-orchestration-automating-deployments-of-full-stack-configurations/)
+aka the [Heat](https://wiki.openstack.org/wiki/Heat) project from OpenStack. By doing so, we can leverage capabilities which allow for the
+self-configuration of web services in the stack described above.
+
+Orchestration for our stack is described using the
+[YAML](http://en.wikipedia.org/wiki/YAML) format,
+and as an example, we'll examine a snippet of the template used to create the Encoder's stack
+in the Rackspace Public Cloud. The full template can be found at [http://git.io/MEpetw](http://git.io/MEpetw).
+
+```
+resources:
+
+  frontend_server:
+    type: "Rackspace::Cloud::Server"
+    properties:
+      flavor: 2 GB Performance
+      image: { get_param: image }
+      name: { get_param: frontend_server_name }
+      user_data:
+        str_replace:
+          template: |
+            #!/bin/bash
+            apt-get update && apt-get install curl -y
+            curl -skS -L https://raw.github.com/metral/touchstone/%branch%/encoder/server_userdata/frontend.sh | sudo bash /dev/stdin %webapp_ip% %branch%
+          params:
+            "%webapp_ip%": { get_attr: [ webapp_server, privateIPv4 ] }
+            "%branch%": { get_param: branch }
+
+  webapp_server:
+    type: "Rackspace::Cloud::Server"
+    properties:
+      flavor: 2 GB Performance
+      image: { get_param: image }
+      name: { get_param: webapp_server_name }
+      user_data:
+        str_replace:
+          template: |
+            #!/bin/bash
+            apt-get update && apt-get install curl -y
+            curl -skS -L https://raw.github.com/metral/touchstone/%branch%/encoder/server_userdata/webapp.sh | sudo bash /dev/stdin %rax_username% %rax_apikey% %data_master_ip% %mysql_pass% %use_snet% %branch%
+          params:
+            "%rax_username%": { get_param: rax_username }
+            "%rax_apikey%": { get_param: rax_apikey }
+            "%data_master_ip%": { get_attr: [ data_master_server, privateIPv4 ] }
+            "%mysql_pass%": { get_param: mysql_pass }
+            "%use_snet%": { get_param: use_snet }
+            "%branch%": { get_param: branch }
+```
+
+As you can note, we are defining [Rackspace resource types](http://docs.rackspace.com/orchestration/api/v1/orchestration-devguide/content/GET_resource_type_list_v1__tenant_id__resource_types_Stack_Resources.html#GET_resource_type_list_v1__tenant_id__resource_types_Stack_Resources-Response)
+for the frontend and webserver nodes made available via Orchestration.
+
+In addition to resource types, we can define properties such as the flavor
+hardware profile to utlize for the VM. We can even extend the resources by retrieving parameters we set for the default VM image to use
+and the names of the servers, as well as pass in custom init scripts that execute
+after the VM has been instantiated - this showcases the ability to create
+relationships with other components established in the template.
+
+## Synopsis
+In this project, we will be setting up a webapp that encodes a provided video file into the following formats:
+
+  * [AVI](http://en.wikipedia.org/wiki/Audio_Video_Interleave)
+  * [MKV](http://en.wikipedia.org/wiki/Matroska)
+  * [OGG](http://en.wikipedia.org/wiki/Ogg)
+  * [WEBM](http://en.wikipedia.org/wiki/WebM)
+
+## Webapp Flow
+  * When the user visits the webapp, they are presented with the ability to upload a video file
+  * The user will select a video file already available & stored locally on their computer
+  * The video file will then be uploaded to the object storage service provided by Rackspace Cloud Files
+  * Upon a successful upload, the webapp will create an encoding job request that will be entered into the MySQL database for tracking and passed off to the Gearman Job Server for processing
+  * Once the Gearman Job Server receives the job request, it will locate an available Gearman Job Worker to perform the encoding job
+  * The Gearman Job Worker then utilizes the [FFmpeg](http://www.ffmpeg.org/) encoding library to convert the user's video into the available formats
+  * Once the video has been encoded into each format by the Gearman Job Worker, it will upload the encoding to Rackspace Cloud Files
+  * All the while, the webapp will be providing a means to view the status of the encoding job as well as publicly accessible URL's of each encoding format as they become available for consumption
+ 
+## Rackspace Cloud Services Used
+  * Cloud Servers
+  * Cloud Files
+  * Service Network
+  * Orchestration (OpenStack Heat)
