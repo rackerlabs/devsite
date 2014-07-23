@@ -28,8 +28,8 @@ Lets begin by seeing how we would architect your typical [3-tier webapp](http://
 the scene, we will be reviewing how to build the [Encoder project](https://github.com/metral/touchstone/tree/master/encoder), a webapp that that allows a
 user to submit a video file and convert it to the AVI, MKV, OGG and WEBM formats.
 
-Many intricate decisions were made for this project and the technologies chosen
-are simply ones that I am more familiar with, but nevertheless, the following is the proposed architecture for the Encoder
+Many intricate decisions were made for the Encoder project itself and the technologies chosen
+are not prescriptive, but nevertheless, the following is the proposed architecture for the Encoder
 webapp:
 
 {% img https://raw.githubusercontent.com/metral/touchstone/master/encoder/extras/encoder.jpg %}
@@ -88,8 +88,9 @@ As you can note, we are defining [Rackspace resource types](http://docs.rackspac
 for the frontend and webserver nodes made available via Orchestration.
 
 In addition to resource types, we can define properties such as the flavor
-hardware profile to utilize for the VM. We can even extend the resources by retrieving parameters for the default VM image to use
-and the names of the servers, as well as pass in custom init scripts that execute
+hardware profile to utilize for the VM. We can even extend the resources by retrieving parameters such as the default VM image to use,
+the names of the servers, as well as pass in custom init scripts with
+parameters of other Heat resources that execute
 after the VM has been instantiated - this showcases the ability to create
 relationships with other components established in the template.
 
@@ -115,6 +116,7 @@ Given that our architecture, environment and tools are established, lets move on
   * The Gearman Job Worker then utilizes the [FFmpeg](http://www.ffmpeg.org/) encoding library to convert the user's video into the available formats
   * Once the video has been encoded into each format by the Gearman Job Worker, it will upload the encoding to Rackspace Cloud Files
   * All the while, the webapp will be providing a means to view the status of the encoding job as well as publicly accessible URL's of each encoding format as they become available for consumption
+  * Because video conversion is so exhaustive on the CPU, we want to create an email alert that notifies us when the load average on the Gearman Job Worker passes a certain threshold, as this is an indication that special attention is required. To do so, we incorporate [Monitoring as a Service](http://www.rackspace.com/blog/using-cloud-monitoring-on-your-rackspace-private-cloud/)
  
 ## Rackspace Cloud Services Used
   * Cloud Servers
@@ -122,11 +124,21 @@ Given that our architecture, environment and tools are established, lets move on
   * Service Network
   * Orchestration (OpenStack Heat)
 
+## Test Drive
+If you'd like to instantiate the Encoder job right now, you can do this from
+the [heat client](http://docs.rackspace.com/orchestration/api/v1/orchestration-getting-started/content/Install_Heat_Client.html) by issuing the following to run on the Rackspace Public Cloud or see the Demo section below to see how its intended to function:
+
+```
+BRANCH=master ; EMAIL='<your-user>@<your-email-provider.com>' ; USE_SNET=true; \
+heat stack-create encoder \
+--parameters= "rax_username=$OS_USERNAME;rax_apikey=$OS_PASSWORD;email=$EMAIL;branch=$BRANCH;use_snet=$USE_SNET"\
+-u "https://raw.github.com/metral/touchstone/$BRANCH/encoder/public_cloud_encoder.yaml"
+```
+
 ## Demo
 Since the specifics of the webapp itself are beyond the intent of
 this blog post, you should now have the necessary information to understand how
 you would carry out a similar stack. Therefore, when you deploy the Encoder
 project you'll be presented with an app that functions as such:
-
 
 {% img /images/i-have-a-cloud-dot-dot-dot-now-what-part-1-building-a-3-tier-webapp/encoder.gif %}
