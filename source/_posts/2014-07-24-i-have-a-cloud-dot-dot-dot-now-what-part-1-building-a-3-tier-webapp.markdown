@@ -24,7 +24,7 @@ consume, organize and orchestrate real-world web stacks on the infrastructures p
 <!-- more -->
 
 ## Architecture
-Lets begin by seeing how we would architect your typical [3-tier webapp](http://en.wikipedia.org/wiki/Multitier_architecture#Web_development_usage). To set
+For this first blog post, lets begin by seeing how we would architect your typical [3-tier webapp](http://en.wikipedia.org/wiki/Multitier_architecture#Web_development_usage). To set
 the scene, we will be reviewing how to build the [Encoder project](https://github.com/metral/touchstone/tree/master/encoder), a webapp that that allows a
 user to submit a video file and convert it to the AVI, MKV, OGG and WEBM formats.
 
