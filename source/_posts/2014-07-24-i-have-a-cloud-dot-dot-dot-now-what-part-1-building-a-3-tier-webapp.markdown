@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "I Have A Cloud...Now What? - Part 1: Building a 3-tier Webapp"
-date: 2014-07-08 12:26
+date: 2014-07-24 12:26
 comments: true
 author: Mike Metral
 published: false
@@ -28,16 +28,16 @@ Lets begin by seeing how we would architect your typical [3-tier webapp](http://
 the scene, we will be reviewing how to build the [Encoder project](https://github.com/metral/touchstone/tree/master/encoder), a webapp that that allows a
 user to submit a video file and convert it to the AVI, MKV, OGG and WEBM formats.
 
-As a frame of reference, here is the proposed architecture for the Encoder
+Many intricate decisions were made for this project and the technologies chosen
+are simply ones that I am more familiar with, but nevertheless, the following is the proposed architecture for the Encoder
 webapp:
 
 {% img https://raw.githubusercontent.com/metral/touchstone/master/encoder/extras/encoder.jpg %}
 
 ## Enabling Orchestration
-We are following the 3-tier model by organizing & orchestrating the provisioning of
+With the architecture laid out, we now focus on how to coordinate & construct our stack. We can organize & orchestrate the provisioning of the
 cloud infrastructure through [Rackspace's Cloud Orchestration](http://www.rackspace.com/blog/cloud-orchestration-automating-deployments-of-full-stack-configurations/)
-aka the [Heat](https://wiki.openstack.org/wiki/Heat) project from OpenStack. By doing so, we can leverage capabilities which allow for the
-self-configuration of web services in the stack described above.
+aka the [Heat](https://wiki.openstack.org/wiki/Heat) project from OpenStack. By doing so, we can leverage capabilities which allow for a self-configuration of the web services, in a repeatable fashion, that also allows for expansion further down the road.
 
 Orchestration for our stack is described using the
 [YAML](http://en.wikipedia.org/wiki/YAML) format,
@@ -88,13 +88,17 @@ As you can note, we are defining [Rackspace resource types](http://docs.rackspac
 for the frontend and webserver nodes made available via Orchestration.
 
 In addition to resource types, we can define properties such as the flavor
-hardware profile to utlize for the VM. We can even extend the resources by retrieving parameters we set for the default VM image to use
+hardware profile to utilize for the VM. We can even extend the resources by retrieving parameters for the default VM image to use
 and the names of the servers, as well as pass in custom init scripts that execute
 after the VM has been instantiated - this showcases the ability to create
 relationships with other components established in the template.
 
+Heat can do so much more, and I encourage you to spend some time in the
+[developer docs](http://docs.openstack.org/developer/heat/) to see the power
+that it can wield.
+
 ## Synopsis
-In this project, we will be setting up a webapp that encodes a provided video file into the following formats:
+Given that our architecture, environment and tools are established, lets move on to the specifics of the encoder project. Again, we want to setup a webapp that encodes a provided video file into the following formats:
 
   * [AVI](http://en.wikipedia.org/wiki/Audio_Video_Interleave)
   * [MKV](http://en.wikipedia.org/wiki/Matroska)
@@ -105,7 +109,8 @@ In this project, we will be setting up a webapp that encodes a provided video fi
   * When the user visits the webapp, they are presented with the ability to upload a video file
   * The user will select a video file already available & stored locally on their computer
   * The video file will then be uploaded to the object storage service provided by Rackspace Cloud Files
-  * Upon a successful upload, the webapp will create an encoding job request that will be entered into the MySQL database for tracking and passed off to the Gearman Job Server for processing
+  * Upon a successful upload, the webapp will create an encoding job request that will be entered into the MySQL database for tracking
+  * The encoding job is the passed off to the Gearman Job Server for processing
   * Once the Gearman Job Server receives the job request, it will locate an available Gearman Job Worker to perform the encoding job
   * The Gearman Job Worker then utilizes the [FFmpeg](http://www.ffmpeg.org/) encoding library to convert the user's video into the available formats
   * Once the video has been encoded into each format by the Gearman Job Worker, it will upload the encoding to Rackspace Cloud Files
@@ -116,3 +121,12 @@ In this project, we will be setting up a webapp that encodes a provided video fi
   * Cloud Files
   * Service Network
   * Orchestration (OpenStack Heat)
+
+## Demo
+Since the specifics of the webapp itself are beyond the intent of
+this blog post, you should now have the necessary information to understand how
+you would carry out a similar stack. Therefore, when you deploy the Encoder
+project you'll be presented with an app that functions as such:
+
+
+{% img /images/i-have-a-cloud-dot-dot-dot-now-what-part-1-building-a-3-tier-webapp/encoder.gif %}
