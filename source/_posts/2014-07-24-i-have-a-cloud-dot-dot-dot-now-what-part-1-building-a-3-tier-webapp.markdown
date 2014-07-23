@@ -28,7 +28,7 @@ For this first blog post, lets begin by seeing how we would architect your typic
 the scene, we will be reviewing how to build the [Encoder project](https://github.com/metral/touchstone/tree/master/encoder), a webapp that that allows a
 user to submit a video file and convert it to the AVI, MKV, OGG and WEBM formats.
 
-Many intricate decisions were made for the Encoder project itself and the technologies chosen
+Note, many intricate decisions were made for the Encoder project itself and the technologies chosen
 are not prescriptive, but nevertheless, the following is the proposed architecture for the Encoder
 webapp:
 
